@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =============================================
+         PAGE TITLE — shown on browser tab
+    ============================================= -->
+    <title>Our Wedding</title>
+
+    <!-- Fonts — Caveat (playful handwritten) + Nunito Sans (clean readable) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================================================================
+         GLOBAL FRAME — decorative SVG border, fixed to the viewport.
+         It stretches to fill the screen on every section as you scroll.
+         To swap the border: replace the SVG file in images/
+         and update the src below.
+    ================================================================ -->
+    <!-- =============================================
+         NAVIGATION — fixed top bar with section links
+    ============================================= -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#title" data-en="Home" data-bg="Начало">Начало</a></li>
+            <li><a href="#details" data-en="Details" data-bg="Детали">Детали</a></li>
+            <li><a href="#program" data-en="Program" data-bg="Програма">Програма</a></li>
+            <li><a href="#info" data-en="Info" data-bg="Информация">Информация</a></li>
+            <li><a href="#rsvp" data-en="RSVP" data-bg="Присъствие">Присъствие</a></li>
+            <li><a href="#explore" data-en="Explore" data-bg="Панчарево">Панчарево</a></li>
+        </ul>
+        <button id="lang-toggle" aria-label="Toggle language" style="position:absolute;top:12px;right:24px;z-index:1000;min-width:44px;min-height:32px;font-size:1rem;padding:6px 16px;border-radius:20px;border:none;background:#fff3;cursor:pointer;font-weight:600;">EN</button>
+    </nav>
+
+    <!-- Page-wrap: spans the full scrollable page; frame is drawn around it -->
+    <div id="page-wrap">
+    <div id="page-frame" aria-hidden="true"></div>
+
+
+    <!-- ================================================================
+         SECTION 1 — TITLE PAGE
+         Color: #87a922
+         Edit: couple names, wedding date subtitle, hero image
+    ================================================================ -->
+    <section id="title" class="section section--green">
+        <!-- Doodle: heart -->
+        <div class="doodle doodle--bottom-right doodle--tilt-cw doodle--float">
+            <svg width="64" height="64" viewBox="0 0 64 64"><path d="M32 56 C20 44, 4 36, 4 22 A14 14 0 0 1 32 14 A14 14 0 0 1 60 22 C60 36, 44 44, 32 56z"/></svg>
+        </div>
+        <div class="frame paper-canvas">
+            <div class="section__content title-layout">
+
+                <!-- LEFT: HERO IMAGE — replace src with your photo, or remove this block to hide -->
+                <div class="hero-image">
+                    <img src="images/hero.jpg" alt="Couple photo" onerror="this.parentElement.style.display='none'">
+                </div>
+
+                <!-- RIGHT: TEXT -->
+                <div class="title-text">
+
+                    <!-- COUPLE NAMES — edit here -->
+                    <h1 class="names headline-font" data-en="Simona &amp; Viktor" data-bg="Симона &amp; Виктор">Симона &amp; Виктор</h1>
+
+                    <!-- TAGLINE — edit or remove -->
+                    <p class="tagline body-font" data-en="are getting married" data-bg="ще се женят">ще се женят</p>
+
+                    <!-- WEDDING DATE — edit here -->
+                    <p class="date-display location-font" data-en="19 September 2026" data-bg="19 Септември 2026">19 Септември 2026</p>
+
+                    <!-- SCROLL CTA -->
+                    <a href="#details" class="scroll-down">↓</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 2 — DATE / TIME / LOCATION / DIRECTIONS
+         Color: #cc671f
+         Edit: date, time, venue name, address, Google Maps link, directions text
+    ================================================================ -->
+    <section id="details" class="section section--orange">
+        <!-- Doodle: rings -->
+        <div class="doodle doodle--top-right doodle--tilt-ccw doodle--float">
+            <svg width="72" height="48" viewBox="0 0 72 48"><circle cx="24" cy="24" r="16"/><circle cx="48" cy="24" r="16"/></svg>
+        </div>
+        <!-- Doodle: compass -->
+        <div class="doodle doodle--bottom-left doodle--tilt-cw doodle--float-delayed">
+            <svg width="56" height="56" viewBox="0 0 56 56"><circle cx="28" cy="28" r="22"/><path d="M28 8 L28 14 M28 42 L28 48 M8 28 L14 28 M42 28 L48 28"/><path d="M28 18 L34 28 L28 38 L22 28z"/></svg>
+        </div>
+        <div class="frame paper-canvas">
+            <div class="section__content">
+                <h2 class="section__title headline-font" data-en="When &amp; Where" data-bg="Кога &amp; Къде">Кога &amp; Къде</h2>
+
+                <div class="info-grid">
+
+                    <!-- DATE & TIME block -->
+                    <div class="info-block">
+                        <span class="info-block__icon">📅</span>
+                        <h3 class="location-font" data-en="Date &amp; Time" data-bg="Дата и час">Дата и час</h3>
+                        <p>19 Септември 2026</p>
+                        <p>15:00</p>
+                    </div>
+
+                    <!-- VENUE block -->
+                    <div class="info-block">
+                        <span class="info-block__icon">📍</span>
+                        <h3 class="location-font" data-en="Venue" data-bg="Място">Място</h3>
+                        <p>Agora</p>
+                        <p>Панчарево, България</p>
+                    </div>
+
+                    <!-- DIRECTIONS block -->
+                    <div class="info-block">
+                        <span class="info-block__icon">🗺️</span>
+                        <h3 class="location-font" data-en="Directions" data-bg="Как да стигнете">Как да стигнете</h3>
+                        <p data-en="Directions or transport info." data-bg="Указания или информация за транспорт.">Указания или информация за транспорт.</p>
+                        <!-- Replace # with your Google Maps link -->
+                        <a class="btn" href="https://maps.app.goo.gl/fK75tLhFqYxxpect7" target="_blank" data-en="Open in Maps" data-bg="Отвори в картите">Отвори в картите</a>
+                    </div>
+
+                </div>
+
+                <!-- OPTIONAL: embed a Google Map iframe
+                     Replace the src URL with your venue's embed link
+                     from Google Maps > Share > Embed a map
+                <div class="map-embed">
+                    <iframe src="YOUR_GOOGLE_MAPS_EMBED_URL"
+                        width="100%" height="300" style="border:0;"
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+                -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 3 — WEDDING PROGRAM
+         Color: #bcd5e2
+         Edit: add/remove/reorder .program-item entries below
+    ================================================================ -->
+    <section id="program" class="section section--blue">
+        <!-- Doodle: champagne glasses -->
+        <div class="doodle doodle--top-left doodle--tilt-ccw doodle--float">
+            <svg width="64" height="72" viewBox="0 0 64 72"><path d="M18 4 L14 28 Q12 34, 18 36 L18 60 M12 60 L24 60"/><path d="M46 4 L50 28 Q52 34, 46 36 L46 60 M40 60 L52 60"/><path d="M22 10 L42 10" stroke-dasharray="3 3"/></svg>
+        </div>
+        <div class="frame paper-canvas">
+            <div class="section__content">
+                <h2 class="section__title headline-font" data-en="Program" data-bg="Програма">Програма</h2>
+
+                <div class="timeline">
+
+                    <!-- PROGRAM ITEM — copy this block to add more entries.
+                         Structure: time on top, dot in middle, event label below -->
+                    <div class="program-item">
+                        <span class="program-item__time">00:00</span>
+                        <div class="program-item__dot"></div>
+                        <span class="program-item__event body-font" data-en="Guest Arrival" data-bg="Пристигане на гостите">Пристигане на гостите</span>
+                    </div>
+
+                    <div class="program-item">
+                        <span class="program-item__time">00:00</span>
+                        <div class="program-item__dot"></div>
+                        <span class="program-item__event body-font" data-en="Ceremony Begins" data-bg="Начало на церемонията">Начало на церемонията</span>
+                    </div>
+
+                    <div class="program-item">
+                        <span class="program-item__time">00:00</span>
+                        <div class="program-item__dot"></div>
+                        <span class="program-item__event body-font" data-en="Cocktail Hour" data-bg="Коктейл час">Коктейл час</span>
+                    </div>
+
+                    <div class="program-item">
+                        <span class="program-item__time">00:00</span>
+                        <div class="program-item__dot"></div>
+                        <span class="program-item__event body-font" data-en="Reception &amp; Dinner" data-bg="Прием &amp; Вечеря">Прием &amp; Вечеря</span>
+                    </div>
+
+                    <div class="program-item">
+                        <span class="program-item__time">00:00</span>
+                        <div class="program-item__dot"></div>
+                        <span class="program-item__event body-font" data-en="First Dance" data-bg="Първи танц">Първи танц</span>
+                    </div>
+
+                    <div class="program-item">
+                        <span class="program-item__time">00:00</span>
+                        <div class="program-item__dot"></div>
+                        <span class="program-item__event body-font" data-en="Party &amp; Dancing" data-bg="Парти &amp; Танци">Парти &amp; Танци</span>
+                    </div>
+                    <!-- END PROGRAM ITEMS -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 4 — DETAILS (Plus ones / Dietary / Presents)
+         Color: #f1c9d2
+         Edit: update each .detail-card's text content
+    ================================================================ -->
+    <section id="info" class="section section--pink">
+        <!-- Doodle: cake -->
+        <div class="doodle doodle--top-right doodle--tilt-cw doodle--float">
+            <svg width="56" height="68" viewBox="0 0 56 68"><rect x="14" y="40" width="28" height="16" rx="3"/><rect x="10" y="24" width="36" height="16" rx="3"/><rect x="6" y="8" width="44" height="16" rx="3"/><path d="M28 8 L28 2 M22 8 L22 4 M34 8 L34 4"/><circle cx="28" cy="0" r="2"/><circle cx="22" cy="2" r="1.5"/><circle cx="34" cy="2" r="1.5"/></svg>
+        </div>
+        <div class="frame paper-canvas">
+            <div class="section__content">
+                <h2 class="section__title headline-font" data-en="Good to Know" data-bg="Добре е да знаете">Добре е да знаете</h2>
+
+                <div class="cards-grid">
+
+                    <!-- PLUS ONES card — edit text below -->
+                    <div class="detail-card">
+                        <span class="detail-card__icon">👫</span>
+                        <h3 class="location-font" data-en="Plus Ones" data-bg="Придружители">Придружители</h3>
+                        <p data-en="Your plus one invitation text goes here. Let guests know if they can bring a guest." data-bg="Вашият текст за придружители от поканата отива тук. Уведомете гостите си дали могат да доведат придружител.">Вашият текст за придружители от поканата отива тук. Уведомете гостите си дали могат да доведат придружител.</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <span class="detail-card__icon">🥗</span>
+                        <h3 class="location-font" data-en="Dietary Preferences" data-bg="Хранителни предпочитания">Хранителни предпочитания</h3>
+                        <p data-en="Vegetarian and other options will be available. Please let us know your preferences in the RSVP." data-bg="Вегетариански и други хранителни опции ще бъдат налични. Моля, уведомете ни за вашите предпочитания в RSVP.">Вегетариански и други хранителни опции ще бъдат налични. Моля, уведомете ни за вашите предпочитания в RSVP.</p>
+                    </div>
+
+                    <!-- PRESENTS card — edit text below -->
+                    <div class="detail-card">
+                        <span class="detail-card__icon">🎁</span>
+                        <h3 class="location-font" data-en="Gifts" data-bg="Подаръци">Подаръци</h3>
+                        <p data-en="Your presence is the greatest gift. If you'd like to contribute, details for a gift registry or fund will be here." data-bg="Вашето присъствие е най-големият подарък. Ако желаете да допринесете, подробности за регистър на подаръци или фонд ще бъдат тук.">Вашето присъствие е най-големият подарък. Ако желаете да допринесете, подробности за регистър на подаръци или фонд ще бъдат тук.</p>
+                    </div>
+
+                    <!-- ADD MORE CARDS: copy the .detail-card block above and paste here -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 5 — RSVP FORM
+         Color: #87a922
+         Edit: update the Formspree action URL with your own endpoint
+         Get a free endpoint at https://formspree.io
+    ================================================================ -->
+    <section id="rsvp" class="section section--green">
+        <!-- Doodle: envelope -->
+        <div class="doodle doodle--top-left doodle--tilt-ccw doodle--float">
+            <svg width="64" height="52" viewBox="0 0 64 52"><rect x="4" y="8" width="56" height="38" rx="4"/><path d="M4 8 L32 30 L60 8"/></svg>
+        </div>
+        <!-- Doodle: small heart -->
+        <div class="doodle doodle--bottom-right doodle--tilt-cw doodle--float-delayed">
+            <svg width="40" height="40" viewBox="0 0 40 40"><path d="M20 36 C12 28, 2 22, 2 14 A8 8 0 0 1 20 10 A8 8 0 0 1 38 14 C38 22, 28 28, 20 36z"/></svg>
+        </div>
+        <div class="frame paper-canvas">
+            <div class="section__content section__content--center">
+                <h2 class="section__title headline-font" data-en="RSVP" data-bg="Присъствие">Присъствие</h2>
+                <p class="section__subtitle" data-en="Please reply by 00 Month 0000" data-bg="Моля, отговорете до 00 Месец 0000">Моля, отговорете до 00 Месец 0000</p>
+
+                <!-- RSVP FORM
+                     Replace YOUR_FORMSPREE_ID in the action URL below.
+                     Sign up free at formspree.io, create a form, and paste your form ID.
+                -->
+                <form
+                    class="rsvp-form"
+                    action="https://formspree.io/f/xjgeqzyd"
+                    method="POST"
+                    id="rsvpForm">
+
+                    <!-- Guest name field -->
+                    <div class="form-group">
+                        <label for="name" data-en="Full Name" data-bg="Име и фамилия">Име и фамилия</label>
+                        <input type="text" id="name" name="name" placeholder="Вашето пълно име" required data-en-placeholder="Your full name" data-bg-placeholder="Вашето пълно име">
+                    </div>
+
+                    <!-- Attendance radio buttons -->
+                    <div class="form-group">
+                        <label data-en="Will you attend?" data-bg="Ще присъствате ли?">Ще присъствате ли?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="Attending" required>
+                                <span data-en="Gladly accept" data-bg="С радост приемам">С радост приемам</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="Not Attending">
+                                <span data-en="Sorry, can't attend" data-bg="Съжалявам, не мога да присъствам">Съжалявам, не мога да присъствам</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn--submit body-font" data-en="Submit RSVP" data-bg="Изпрати Присъствие">Изпрати Присъствие</button>
+
+                </form>
+
+                <!-- Success messages — shown after submission via JS (outside form so hiding form doesn't hide them) -->
+                <p class="form-success" id="formSuccessYes" data-en="Thank you! We can't wait to celebrate with you. 🎉" data-bg="Благодарим ви! Нямаме търпение да празнуваме с вас. 🎉" style="display:none">Благодарим ви! Нямаме търпение да празнуваме с вас. 🎉</p>
+                <p class="form-success" id="formSuccessNo" data-en="Thank you for letting us know. We'll miss you!" data-bg="Благодарим ви, че ни уведомихте. Ще ни липсвате!" style="display:none">Благодарим ви, че ни уведомихте. Ще ни липсвате!</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================
+         SECTION 6 — SIGHTSEEING & RESTAURANTS
+         Color: #cc671f
+         Edit: update each .rec-card with your recommendations
+    ================================================================ -->
+    <section id="explore" class="section section--orange">
+        <!-- Doodle: map pin -->
+        <div class="doodle doodle--top-right doodle--tilt-ccw doodle--float">
+            <svg width="40" height="56" viewBox="0 0 40 56"><path d="M20 52 C20 52, 4 32, 4 18 A16 16 0 1 1 36 18 C36 32, 20 52, 20 52z"/><circle cx="20" cy="18" r="6"/></svg>
+        </div>
+        <div class="frame paper-canvas">
+            <div class="section__content">
+                <h2 class="section__title headline-font" data-en="Explore the Area" data-bg="Разгледайте района">Разгледайте района</h2>
+
+                <!-- SIGHTSEEING -->
+                <h3 class="rec-category location-font" data-en="🏛️ Sightseeing" data-bg="🏛️ Забележителности">🏛️ Забележителности</h3>
+                <div class="rec-grid">
+
+                    <!-- SIGHTSEEING CARD — copy to add more -->
+                    <div class="rec-card">
+                        <!-- Optional image: <img src="images/sight1.jpg" alt="Име на мястото"> -->
+                        <h4 class="location-font" data-en="Place Name" data-bg="Име на мястото">Име на мястото</h4>
+                        <p class="body-font" data-en="Short description of this attraction and why guests will enjoy it." data-bg="Кратко описание на тази атракция и защо гостите ще се насладят на нея.">Кратко описание на тази атракция и защо гостите ще се насладят на нея.</p>
+                        <!-- Replace # with a Google Maps or website link -->
+                        <a href="#" target="_blank" class="rec-link body-font" data-en="View on map →" data-bg="Виж на картата →">Виж на картата →</a>
+                    </div>
+
+                    <div class="rec-card">
+                        <h4>Име на мястото</h4>
+                        <p>Кратко описание на тази атракция и защо гостите ще се насладят на нея.</p>
+                        <a href="#" target="_blank" class="rec-link">Виж на картата →</a>
+                    </div>
+
+                    <!-- ADD MORE: copy a .rec-card block here -->
+
+                </div>
+
+                <!-- RESTAURANTS -->
+                <h3 class="rec-category location-font" data-en="🍽️ Restaurants" data-bg="🍽️ Ресторанти">🍽️ Ресторанти</h3>
+                <div class="rec-grid">
+
+                    <!-- RESTAURANT CARD — copy to add more -->
+                    <div class="rec-card">
+                        <!-- Optional image: <img src="images/rest1.jpg" alt="Име на ресторанта"> -->
+                        <h4 class="location-font" data-en="Restaurant Name" data-bg="Име на ресторанта">Име на ресторанта</h4>
+                        <p class="body-font" data-en="Cuisine type. Short description and why you recommend it." data-bg="Тип кухня. Кратко описание и защо го препоръчвате.">Тип кухня. Кратко описание и защо го препоръчвате.</p>
+                        <a href="#" target="_blank" class="rec-link body-font" data-en="View on map →" data-bg="Виж на картата →">Виж на картата →</a>
+                    </div>
+
+                    <div class="rec-card">
+                        <h4>Име на ресторанта</h4>
+                        <p>Тип кухня. Кратко описание и защо го препоръчвате.</p>
+                        <a href="#" target="_blank" class="rec-link">Виж на картата →</a>
+                    </div>
+
+                    <!-- ADD MORE: copy a .rec-card block here -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================================================
+         FOOTER — edit text below
+    ================================================================ -->
+    <footer class="footer">
+        <p class="body-font" data-en="Made with love ♥ · Simona &amp; Viktor · 2026" data-bg="Създадено с любов ♥ · Симона &amp; Виктор · 2026">Създадено с любов ♥ · Симона &amp; Виктор · 2026</p>
+    </footer>
+    </div><!-- /#page-wrap -->
+
+    <script src="js/main.js"></script>
+        <script>
+        // Language toggle logic for the whole page
+        const langToggle = document.getElementById('lang-toggle');
+        let currentLang = 'bg';
+        function updateLang() {
+            document.querySelectorAll('[data-en][data-bg]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+            document.querySelectorAll('[data-en-placeholder][data-bg-placeholder]').forEach(el => {
+                el.setAttribute('placeholder', el.getAttribute(`data-${currentLang}-placeholder`));
+            });
+            langToggle.textContent = currentLang === 'bg' ? 'EN' : 'BG';
+            // Also update RSVP success messages
+            if (typeof updateSuccessMessages === 'function') updateSuccessMessages();
+        }
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'bg' ? 'en' : 'bg';
+            updateLang();
+        });
+        updateLang();
+
+        // RSVP form logic for different messages
+        const rsvpForm = document.getElementById('rsvpForm');
+        const formSuccessYes = document.getElementById('formSuccessYes');
+        const formSuccessNo = document.getElementById('formSuccessNo');
+        if (rsvpForm) {
+            rsvpForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                formSuccessYes.style.display = 'none';
+                formSuccessNo.style.display = 'none';
+                const formData = new FormData(rsvpForm);
+                const attending = formData.get('attendance');
+                fetch(rsvpForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    rsvpForm.style.display = 'none';
+                    if (attending === 'Not Attending') {
+                        formSuccessNo.style.display = 'block';
+                    } else {
+                        formSuccessYes.style.display = 'block';
+                    }
+                })
+                .catch(() => {
+                    rsvpForm.style.display = 'none';
+                    formSuccessNo.textContent = currentLang === 'bg' ? 'Възникна грешка. Моля, опитайте отново.' : 'An error occurred. Please try again.';
+                    formSuccessNo.style.display = 'block';
+                });
+            });
+        }
+        // Update success messages on language change
+        function updateSuccessMessages() {
+            formSuccessYes.textContent = formSuccessYes.getAttribute(`data-${currentLang}`);
+            formSuccessNo.textContent = formSuccessNo.getAttribute(`data-${currentLang}`);
+        }
+        </script>
+</body>
+</html>

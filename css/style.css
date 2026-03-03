@@ -1,0 +1,1123 @@
+/* ================================================================
+   WEDDING WEBSITE — STYLESHEET
+   Aesthetic: Playful hand-drawn wedding invitation
+   File: css/style.css
+
+   TABLE OF CONTENTS
+   1. CSS Variables
+   2. Reset & Base
+   3. Global Page Frame
+   4. Navigation
+   5. Sections (layout & colors)
+   6. Section Content Wrapper
+   7. Section 1 — Title (horizontal hero)
+   8. Section 2 — When & Where
+   9. Section 3 — Program (horizontal timeline)
+   10. Section 4 — Good to Know (cards)
+   11. Section 5 — RSVP Form
+   12. Section 6 — Explore
+   13. Footer
+   14. Shared Components (buttons)
+   15. Hand-drawn Decorative Elements
+   16. Animation Keyframes
+   17. Responsive / Mobile
+================================================================ */
+
+
+/* ================================================================
+   1. CSS VARIABLES
+================================================================ */
+:root {
+    /* — Softer pastel palette — */
+    --color-green:    #a3b86c;
+    --color-orange:   #d4976a;
+    --color-blue:     #c5dde8;
+    --color-pink:     #f2d0d9;
+
+    /* — Text — */
+    --text-light:     #faf8f5;
+    --text-dark:      #3a3530;
+    --text-muted:     rgba(58,53,48,0.55);
+    --text-muted-lt:  rgba(250,248,245,0.70);
+
+    /* — Typography — */
+    --font-heading:   'Caveat', 'Segoe Script', cursive;
+    --font-body:      'Nunito Sans', 'Segoe UI', sans-serif;
+
+    /* — Sketch strokes — */
+    --sketch-color:   #3a3530;
+    --sketch-width:   1.6px;
+
+    /* — Layout — */
+    --content-max-width: 880px;
+    --section-pad-v:     100px;
+    --section-pad-h:     60px;
+
+    /* — Transitions — */
+    --transition:     0.35s ease;
+    --transition-slow: 0.7s ease;
+}
+
+
+/* ================================================================
+   2. RESET & BASE
+================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: transparent !important; }
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+
+/* ================================================================
+   3. GLOBAL PAGE FRAME — SVG decorative border
+================================================================ */
+#page-wrap { position: relative; z-index: 0; }
+
+#page-frame {
+    position: absolute;
+    top: 0; bottom: 65px; left: 0; right: 0;
+    pointer-events: none;
+    z-index: 900;
+    box-sizing: border-box;
+    border: 240px solid transparent;
+    border-image-source: url('../images/shutterstock_2124199241-1.svg');
+    border-image-slice: 125 135 134 143;
+    border-image-repeat: round;
+}
+
+
+/* ================================================================
+   4. NAVIGATION
+================================================================ */
+#navbar {
+    position: static;
+    width: auto;
+    z-index: auto;
+    background: var(--color-green) !important;
+    backdrop-filter: none !important;
+    padding: 14px 24px !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    transition: none;
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+#navbar ul li a {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    font-weight: 600;
+    opacity: 0.7;
+    transition: opacity var(--transition), transform 0.25s cubic-bezier(.4,1.4,.6,1);
+    position: relative;
+}
+
+/* Sketch-style underline on hover */
+#navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 10%; right: 10%;
+    height: 1.5px;
+    background: var(--text-dark);
+    border-radius: 4px;
+    transform: scaleX(0) rotate(-0.5deg);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+#navbar ul li a:hover::after,
+#navbar ul li a.active::after {
+    transform: scaleX(1) rotate(-0.5deg);
+}
+
+#navbar ul li a:hover,
+#navbar ul li a:focus {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+#navbar ul li a.active { opacity: 1; }
+
+
+/* ================================================================
+   5. SECTIONS — layout & color modifiers
+================================================================ */
+.section {
+    position: relative;
+    height: 100vh;
+    padding: var(--section-pad-v) var(--section-pad-h);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+.section--green  { background-color: var(--color-green); }
+.section--orange { background-color: var(--color-orange); }
+.section--blue   { background-color: var(--color-blue); }
+.section--pink   { background-color: var(--color-pink); }
+
+/* All sections use dark text on soft pastels */
+.section { color: var(--text-dark); }
+
+/* Green & orange use light text for contrast */
+.section--green,
+.section--orange { color: var(--text-light); }
+
+.frame {
+    width: 100%;
+    max-width: var(--content-max-width);
+}
+
+
+/* ================================================================
+   6. SECTION CONTENT WRAPPER
+================================================================ */
+.section__content {
+    width: 100%;
+    padding: 0;
+}
+
+.section__content--center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 48px;
+    color: inherit;
+    position: relative;
+    display: inline-block;
+}
+
+/* Hand-drawn squiggly underline */
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background: currentColor;
+    opacity: 0.25;
+    border-radius: 40%;
+    transform: rotate(-0.8deg);
+}
+
+.section__subtitle {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    opacity: 0.65;
+    margin-top: -36px;
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+}
+
+
+/* ================================================================
+   6b. PAPER CANVAS — single continuous sheet
+   One unbroken off-white paper element spanning the entire
+   scrollable page via #page-wrap::before. Truly one piece —
+   no per-section segments, no joins, no gaps.
+   .paper-canvas on .frame elevates content above the sheet.
+================================================================ */
+
+#page-wrap::before {
+    content: '';
+    position: absolute;
+    top: 140px;
+    bottom: 155px;            /* 65px footer clearance + 90px inset */
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(61rem, calc(100% - 2.5rem));
+
+    /* Paper colour — clean warm off-white, no texture */
+    background-color: #fdfaf5;
+
+    /* Elegantly rounded corners — soft, stationery feel */
+    border-radius: 36px 40px 38px 32px;
+
+    /* Warm grey outline */
+    border: 1px solid rgba(160, 140, 110, 0.18);
+
+    /* Depth: ambient lift + inner shadow + double inset frame */
+    box-shadow:
+        /* Ambient lift */
+        0 2px 8px rgba(80, 60, 30, 0.035),
+        0 8px 32px rgba(80, 60, 30, 0.025),
+        0 16px 56px rgba(80, 60, 30, 0.018),
+        /* Inner shadow — paper depth */
+        inset 0 2px 8px rgba(80, 60, 30, 0.025),
+        inset 0 -2px 8px rgba(80, 60, 30, 0.02),
+        inset 3px 0 8px rgba(80, 60, 30, 0.015),
+        inset -3px 0 8px rgba(80, 60, 30, 0.015),
+        /* Double inset frame — line 1 */
+        inset 0 0 0 8px #fdfaf5,
+        inset 0 0 0 9px rgba(160, 140, 110, 0.12),
+        /* Double inset frame — line 2 */
+        inset 0 0 0 13px #fdfaf5,
+        inset 0 0 0 13.5px rgba(160, 140, 110, 0.06);
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ---- .paper-canvas — elevates content above the paper sheet ---- */
+.paper-canvas {
+    position: relative;
+    z-index: 2;
+    color: var(--text-dark) !important;
+    text-align: center;
+}
+
+/* ---- Content typography inside canvas ---- */
+.paper-canvas p {
+    max-width: 62ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paper-canvas .section__title {
+    color: var(--text-dark);
+}
+
+.paper-canvas .section__title::after {
+    opacity: 0.18;
+}
+
+.paper-canvas .section__subtitle {
+    color: var(--text-dark);
+    opacity: 0.5;
+}
+
+/* ---- Decorative flourish divider ---- */
+.paper-divider {
+    display: block;
+    width: 80px;
+    height: 1px;
+    border: none;
+    margin: 32px auto;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(160, 140, 110, 0.3) 20%,
+        rgba(160, 140, 110, 0.3) 80%,
+        transparent
+    );
+    position: relative;
+    transform: rotate(-0.5deg);
+}
+
+.paper-divider::after {
+    content: '~';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -56%);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: rgba(160, 140, 110, 0.4);
+    background: #fdfaf5;
+    padding: 0 10px;
+}
+
+/* ---- Form overrides on paper ---- */
+.paper-canvas .form-group {
+    text-align: left;
+}
+
+.paper-canvas .form-group > label {
+    color: var(--text-dark);
+    opacity: 0.75;
+}
+
+.paper-canvas .form-group input[type="text"] {
+    border-color: rgba(160, 140, 110, 0.3);
+    background: rgba(160, 140, 110, 0.04);
+    color: var(--text-dark);
+}
+
+.paper-canvas .form-group input[type="text"]::placeholder {
+    color: rgba(58, 53, 48, 0.3);
+}
+
+.paper-canvas .form-group input[type="text"]:focus {
+    border-color: rgba(160, 140, 110, 0.55);
+    background: rgba(160, 140, 110, 0.06);
+    box-shadow: 0 0 0 3px rgba(160, 140, 110, 0.08);
+}
+
+.paper-canvas .radio-label {
+    color: var(--text-dark);
+    border-color: rgba(160, 140, 110, 0.3);
+}
+
+.paper-canvas .radio-label:hover {
+    background: rgba(160, 140, 110, 0.06);
+    border-color: rgba(160, 140, 110, 0.5);
+}
+
+.paper-canvas .radio-label input[type="radio"] {
+    accent-color: var(--color-green);
+}
+
+.paper-canvas .btn {
+    color: var(--text-dark);
+    border-color: rgba(58, 53, 48, 0.3);
+    opacity: 1;
+}
+
+.paper-canvas .btn:hover {
+    background: rgba(160, 140, 110, 0.08);
+    box-shadow: 0 4px 16px rgba(80, 60, 30, 0.06);
+}
+
+.paper-canvas .btn--submit {
+    background: rgba(160, 140, 110, 0.07);
+    border-color: rgba(160, 140, 110, 0.25);
+    color: var(--text-dark);
+}
+
+.paper-canvas .btn--submit:hover {
+    background: rgba(160, 140, 110, 0.14);
+}
+
+.paper-canvas .form-success {
+    color: var(--text-dark);
+    background: rgba(163, 184, 108, 0.12);
+    border-color: rgba(163, 184, 108, 0.2);
+}
+
+/* ---- Card overrides on paper ---- */
+.paper-canvas .detail-card {
+    background: rgba(160, 140, 110, 0.045);
+    border-color: rgba(160, 140, 110, 0.1);
+}
+
+.paper-canvas .detail-card:hover {
+    box-shadow: 0 8px 24px rgba(80, 60, 30, 0.05);
+}
+
+.paper-canvas .rec-card {
+    background: rgba(160, 140, 110, 0.04);
+    border-color: rgba(160, 140, 110, 0.1);
+    text-align: left;
+}
+
+.paper-canvas .rec-card:hover {
+    background: rgba(160, 140, 110, 0.08);
+    box-shadow: 0 6px 20px rgba(80, 60, 30, 0.05);
+}
+
+/* ---- Misc overrides ---- */
+.paper-canvas .info-block p {
+    opacity: 0.7;
+}
+
+.paper-canvas .scroll-down {
+    color: var(--text-dark);
+}
+
+.paper-canvas .rec-link {
+    opacity: 0.55;
+}
+
+.paper-canvas .rec-link:hover {
+    opacity: 0.9;
+}
+
+.paper-canvas .rec-category {
+    color: var(--text-dark);
+}
+
+/* Title section: keep flex‑aligned start text */
+.paper-canvas .title-layout {
+    text-align: left;
+}
+
+
+/* ================================================================
+   7. SECTION 1 — TITLE PAGE (horizontal hero)
+================================================================ */
+.title-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(40px, 6vw, 100px);
+}
+
+.hero-image {
+    flex-shrink: 0;
+    width: clamp(180px, 26vw, 300px);
+    height: clamp(180px, 26vw, 300px);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.45);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transform: rotate(-2deg);
+    transition: transform 0.6s ease;
+}
+
+.hero-image:hover { transform: rotate(0deg) scale(1.03); }
+
+.hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.names {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+    font-weight: 400;
+    color: inherit;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.tagline {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 20px;
+}
+
+.date-display {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    color: inherit;
+    margin-bottom: 36px;
+    opacity: 0.9;
+}
+
+.scroll-down {
+    font-size: 1.4rem;
+    opacity: 0.5;
+    animation: gentleBounce 2.5s infinite;
+    cursor: pointer;
+    transition: opacity var(--transition);
+}
+
+.scroll-down:hover { opacity: 0.9; }
+
+
+/* ================================================================
+   8. SECTION 2 — WHEN & WHERE
+================================================================ */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.info-block {
+    text-align: center;
+    color: inherit;
+}
+
+.info-block__icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 16px;
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.info-block h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.info-block p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    opacity: 0.85;
+}
+
+.map-embed {
+    margin-top: 48px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+/* ================================================================
+   9. SECTION 3 — PROGRAM (horizontal timeline)
+================================================================ */
+.timeline {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 10px;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+/* Hand-drawn dashed connecting line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 42px;
+    left: 5%; right: 5%;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--text-dark) 0, var(--text-dark) 8px,
+        transparent 8px, transparent 14px
+    );
+    opacity: 0.25;
+    transform: rotate(-0.3deg);
+}
+
+.program-item {
+    flex: 1;
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    position: relative;
+    transition: transform var(--transition);
+}
+
+.program-item:hover { transform: translateY(-3px); }
+
+.program-item__time {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: inherit;
+    opacity: 0.6;
+    order: 1;
+}
+
+.program-item__dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--text-dark);
+    opacity: 0.35;
+    border: 2.5px solid rgba(255,255,255,0.7);
+    flex-shrink: 0;
+    z-index: 1;
+    order: 2;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+.program-item:hover .program-item__dot {
+    transform: scale(1.5);
+    opacity: 0.7;
+}
+
+.program-item__event {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: inherit;
+    line-height: 1.5;
+    order: 3;
+    opacity: 0.8;
+}
+
+
+/* ================================================================
+   10. SECTION 4 — GOOD TO KNOW (cards)
+================================================================ */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.detail-card {
+    background: rgba(255,255,255,0.35);
+    border-radius: 16px;
+    padding: 36px 26px;
+    text-align: center;
+    border: 1.5px solid rgba(58,53,48,0.08);
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+}
+
+/* Slight playful tilt for middle card */
+.detail-card:nth-child(2) { transform: rotate(0.8deg); }
+.detail-card:nth-child(2):hover { transform: rotate(0deg) translateY(-4px); }
+
+.detail-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+}
+
+.detail-card__icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 16px;
+    animation: gentleFloat 5s ease-in-out infinite;
+}
+
+.detail-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.detail-card p {
+    font-size: 0.86rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    opacity: 0.72;
+}
+
+
+/* ================================================================
+   11. SECTION 5 — RSVP FORM
+================================================================ */
+.rsvp-form {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.form-group > label {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    color: inherit;
+    opacity: 0.85;
+}
+
+.form-group input[type="text"] {
+    padding: 12px 18px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 28px;
+    background: rgba(255,255,255,0.1);
+    color: inherit;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.form-group input[type="text"]::placeholder {
+    color: rgba(255,255,255,0.35);
+}
+
+.form-group input[type="text"]:focus {
+    border-color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.08);
+}
+
+.radio-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    color: inherit;
+    padding: 10px 24px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-radius: 40px;
+    transition: background var(--transition), border-color var(--transition), transform 0.2s ease;
+}
+
+.radio-label:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.7);
+    transform: translateY(-1px);
+}
+
+.radio-label input[type="radio"] { accent-color: white; }
+
+.form-success {
+    display: none;
+    background: rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    color: inherit;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    text-align: center;
+    border: 1.5px solid rgba(255,255,255,0.2);
+}
+
+.form-success.visible { display: block; }
+
+
+/* ================================================================
+   12. SECTION 6 — EXPLORE
+================================================================ */
+.rec-category {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: inherit;
+    margin: 40px 0 20px;
+}
+
+.rec-category:first-of-type { margin-top: 0; }
+
+.rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.rec-card {
+    background: rgba(255,255,255,0.14);
+    border-radius: 14px;
+    padding: 24px 22px;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.rec-card:hover {
+    transform: translateY(-3px) rotate(-0.3deg);
+    background: rgba(255,255,255,0.24);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.rec-card img {
+    width: 100%; height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+
+.rec-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: inherit;
+    margin-bottom: 8px;
+}
+
+.rec-card p {
+    font-size: 0.83rem;
+    opacity: 0.75;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.rec-link {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 3px;
+    opacity: 0.65;
+    transition: opacity var(--transition);
+}
+
+.rec-link:hover { opacity: 1; }
+
+
+/* ================================================================
+   13. FOOTER
+================================================================ */
+.footer {
+    background: #2c2822;
+    color: rgba(250,248,245,0.45);
+    text-align: center;
+    padding: 28px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+}
+
+
+/* ================================================================
+   14. SHARED COMPONENTS
+================================================================ */
+
+/* Pill-shaped vintage label buttons */
+.btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 11px 32px;
+    border: 1.5px solid currentColor;
+    border-radius: 40px;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+    transition: background var(--transition), transform 0.25s ease, box-shadow var(--transition);
+    position: relative;
+    opacity: 0.85;
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    opacity: 1;
+}
+
+.btn:active { transform: translateY(0); }
+
+.btn--submit {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255,255,255,0.08);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+.btn--submit:hover { background: rgba(255,255,255,0.22); }
+
+/* Font utility classes */
+.headline-font {
+    font-family: var(--font-heading) !important;
+    font-weight: 400;
+}
+
+.body-font {
+    font-family: var(--font-body) !important;
+    font-weight: 400;
+}
+
+.location-font {
+    font-family: var(--font-heading) !important;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+
+/* ================================================================
+   15. HAND-DRAWN DECORATIVE DOODLES
+   Inline SVG doodles placed near section headers.
+   Use .doodle + position helpers to place them.
+================================================================ */
+.doodle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.18;
+    z-index: 2;
+}
+
+.doodle svg {
+    stroke: var(--sketch-color);
+    stroke-width: var(--sketch-width);
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Light-bg sections: dark doodles */
+.section--blue .doodle,
+.section--pink .doodle { opacity: 0.15; }
+
+/* Dark-bg sections: light doodles */
+.section--green .doodle,
+.section--orange .doodle { opacity: 0.12; }
+.section--green .doodle svg,
+.section--orange .doodle svg { stroke: var(--text-light); }
+
+/* Position helpers */
+.doodle--top-right    { top: 12%; right: 8%; }
+.doodle--top-left     { top: 10%; left: 6%; }
+.doodle--bottom-right { bottom: 12%; right: 7%; }
+.doodle--bottom-left  { bottom: 10%; left: 6%; }
+
+/* Playful rotations */
+.doodle--tilt-cw  { transform: rotate(8deg); }
+.doodle--tilt-ccw { transform: rotate(-6deg); }
+
+/* Floating animation */
+.doodle--float {
+    animation: gentleFloat 6s ease-in-out infinite;
+}
+.doodle--float-delayed {
+    animation: gentleFloat 7s ease-in-out 1.5s infinite;
+}
+
+
+/* ================================================================
+   16. ANIMATION KEYFRAMES
+================================================================ */
+
+/* Gentle vertical float */
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* Soft bounce for scroll arrow */
+@keyframes gentleBounce {
+    0%, 100% { transform: translateY(0); }
+    40%      { transform: translateY(6px); }
+    60%      { transform: translateY(2px); }
+    80%      { transform: translateY(5px); }
+}
+
+/* Wiggle — apply via JS or :hover */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    20%      { transform: rotate(2deg); }
+    40%      { transform: rotate(-2deg); }
+    60%      { transform: rotate(1.5deg); }
+    80%      { transform: rotate(-1deg); }
+}
+
+/* Fade in from below — used by scroll observer */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in class applied by IntersectionObserver */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ================================================================
+   17. RESPONSIVE / MOBILE
+================================================================ */
+@media (max-width: 860px) {
+    :root {
+        --section-pad-h: 36px;
+        --section-pad-v: 80px;
+    }
+
+    .title-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .title-text { align-items: center; }
+
+    .info-grid,
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .timeline {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .program-item { min-width: 100px; }
+
+    #navbar ul { gap: 14px; }
+
+    .doodle svg { width: 48px; height: 48px; }
+
+    /* Paper canvas adjusts on tablet */
+    #page-wrap::before {
+        top: 110px;
+        bottom: 137px;
+        width: min(976px, calc(100% - 32px));
+    }
+}
+
+@media (max-width: 540px) {
+    :root {
+        --section-pad-v: 56px;
+        --section-pad-h: 20px;
+    }
+
+    .names { font-size: 2.2rem; }
+    .radio-group { flex-direction: column; }
+    .doodle { display: none; }
+
+    .section__title { font-size: 2rem; }
+
+    .hero-image { width: 160px; height: 160px; }
+
+    /* Paper canvas compact on mobile */
+    #page-wrap::before {
+        top: 80px;
+        bottom: 121px;
+        width: calc(100% - 20px);
+        border-radius: 24px 28px 26px 22px;
+        box-shadow:
+            0 2px 6px rgba(80, 60, 30, 0.03),
+            0 6px 20px rgba(80, 60, 30, 0.02),
+            inset 0 1px 4px rgba(80, 60, 30, 0.02),
+            inset 1px 0 4px rgba(80, 60, 30, 0.01),
+            inset -1px 0 4px rgba(80, 60, 30, 0.01),
+            /* Single inset frame on mobile */
+            inset 0 0 0 5px #fdfaf5,
+            inset 0 0 0 5.5px rgba(160, 140, 110, 0.1);
+    }
+}
