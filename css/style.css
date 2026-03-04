@@ -64,8 +64,8 @@
     --section-pad-h:     clamp(12px, 5vw, 60px);
 
     /* — Border frame — fluid across all viewport widths — */
-    --border-w:          clamp(60px, 15vw, 240px);
-    --frame-bottom:      clamp(44px, 8vw, 90px);
+    --border-w:          clamp(80px, 18vw, 280px);
+    --frame-bottom:      clamp(56px, 10vw, 110px);
 
     /* — Transitions — */
     --transition:     0.35s ease;
@@ -314,11 +314,11 @@ ul  { list-style: none; }
 #page-wrap::before {
     content: '';
     position: absolute;
-    top: clamp(32px, 8vw, 140px);
-    bottom: clamp(55px, 12vw, 160px);
+    top: calc(clamp(32px, 8vw, 140px) + 20px);
+    bottom: clamp(130px, 12vw, 160px);
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 2 * var(--border-w) - 24px);
+    width: calc(100% - 1 * var(--border-w) );
 
     /* Paper colour — clean warm off-white, no texture */
     background-color: #fdfaf5;
@@ -357,7 +357,7 @@ ul  { list-style: none; }
     z-index: 2;
     color: var(--text-dark) !important;
     text-align: center;
-    max-width: calc(100vw - 2 * var(--border-w) - 24px);
+    max-width: calc(100vw - 2 * var(--border-w) - 8px);
     margin-left: auto;
     margin-right: auto;
     padding: clamp(24px, 5vh, 60px) clamp(20px, 5vw, 56px);
@@ -1132,6 +1132,11 @@ ul  { list-style: none; }
 /* ---- Tablet (≤860px) ---- */
 @media (max-width: 860px) {
 
+    :root {
+        --border-w:    clamp(70px, 14vw, 90px);
+        --frame-bottom: clamp(56px, 11vw, 80px);
+    }
+
     /* Disable scroll-snap — sections now vary in height */
     body {
         scroll-snap-type: none;
@@ -1195,6 +1200,17 @@ ul  { list-style: none; }
 /* ---- Mobile (≤540px) ---- */
 @media (max-width: 540px) {
 
+    :root {
+        --border-w:    90px;
+        --frame-bottom: 70px;
+    }
+
+    /* Push title section content up — avoid centering in full 100vh */
+    #title {
+        align-items: flex-start;
+        padding-top: 16px;
+    }
+
     /* Navbar — compact, wrapped; right padding reserves space for fixed EN button */
     #navbar {
         padding: 10px 52px 10px 8px !important;
@@ -1221,11 +1237,11 @@ ul  { list-style: none; }
         font-size: 0.82rem !important;
         padding: 4px 14px !important;
         z-index: 1001 !important;
-        color: var(--text-dark) !important;
-        background: rgba(253, 250, 245, 0.92) !important;
-        border-color: rgba(58, 53, 48, 0.25) !important;
-        backdrop-filter: blur(6px);
-        box-shadow: 0 2px 8px rgba(80,60,30,0.08);
+        color: var(--text-light) !important;
+        background: transparent !important;
+        border-color: rgba(250, 248, 245, 0.45) !important;
+        backdrop-filter: none;
+        box-shadow: none;
     }
 
     /* Typography — scale down */
@@ -1277,6 +1293,15 @@ ul  { list-style: none; }
 
 /* ---- Very small screens (≤380px) ---- */
 @media (max-width: 380px) {
+    :root {
+        --border-w:    68px;
+        --frame-bottom: 46px;
+    }
+
+    #title {
+        padding-top: 12px;
+    }
+
     .names { font-size: 1.2rem; }
     .section__title { font-size: 1.3rem; }
     .hero-image { flex: 0 0 auto; width: clamp(100px, 44vw, 160px); height: auto; max-height: none; }
