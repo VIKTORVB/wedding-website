@@ -30,7 +30,7 @@
     <nav id="navbar">
         <ul>
             <li><a href="#title" data-en="Home" data-bg="Начало">Начало</a></li>
-            <li><a href="#details" data-en="Details" data-bg="Детали">Детали</a></li>
+            <li><a href="#details" data-en="Venue" data-bg="Място">Място</a></li>
             <li><a href="#program" data-en="Program" data-bg="Програма">Програма</a></li>
             <li><a href="#info" data-en="Info" data-bg="Информация">Информация</a></li>
             <li><a href="#rsvp" data-en="RSVP" data-bg="Присъствие">Присъствие</a></li>
@@ -55,7 +55,7 @@
             <svg width="64" height="64" viewBox="0 0 64 64"><path d="M32 56 C20 44, 4 36, 4 22 A14 14 0 0 1 32 14 A14 14 0 0 1 60 22 C60 36, 44 44, 32 56z"/></svg>
         </div>
         <div class="frame paper-canvas">
-            <div class="section__content title-layout title-layout--stacked">
+            <div class="section__content title-layout">
 
                 <!-- HERO IMAGE — above the names -->
                 <div class="hero-image">
@@ -84,9 +84,9 @@
 
 
     <!-- ================================================================
-         SECTION 2 — DATE / TIME / LOCATION / DIRECTIONS
+         SECTION 2 — VENUE
          Color: #cc671f
-         Edit: date, time, venue name, address, Google Maps link, directions text
+         Edit: venue description, transport info
     ================================================================ -->
     <section id="details" class="section section--orange">
         <!-- Doodle: rings -->
@@ -99,47 +99,39 @@
         </div>
         <div class="frame paper-canvas">
             <div class="section__content">
-                <h2 class="section__title headline-font" data-en="When &amp; Where" data-bg="Кога &amp; Къде">Кога &amp; Къде</h2>
+                <h2 class="section__title headline-font" data-en="The Venue" data-bg="Място">Място</h2>
 
                 <div class="info-grid">
 
-                    <!-- DATE & TIME block -->
+                    <!-- VENUE INFO block -->
                     <div class="info-block">
-                        <span class="info-block__icon">📅</span>
-                        <h3 class="location-font" data-en="Date &amp; Time" data-bg="Дата и час">Дата и час</h3>
-                        <p>19 Септември 2026</p>
-                        <p>15:00</p>
+                        <span class="info-block__icon">🏛️</span>
+                        <h3 class="location-font" data-en="Agora" data-bg="Агора">Агора</h3>
+                        <p data-en="Venue description will be added here." data-bg="Описание на мястото ще бъде добавено тук.">Описание на мястото ще бъде добавено тук.</p>
                     </div>
 
-                    <!-- VENUE block -->
-                    <div class="info-block">
-                        <span class="info-block__icon">📍</span>
-                        <h3 class="location-font" data-en="Venue" data-bg="Място">Място</h3>
-                        <p>Agora</p>
-                        <p>Панчарево, България</p>
-                    </div>
-
-                    <!-- DIRECTIONS block -->
+                    <!-- HOW TO GET THERE block -->
                     <div class="info-block">
                         <span class="info-block__icon">🗺️</span>
-                        <h3 class="location-font" data-en="Directions" data-bg="Как да стигнете">Как да стигнете</h3>
-                        <p data-en="Directions or transport info." data-bg="Указания или информация за транспорт.">Указания или информация за транспорт.</p>
-                        <!-- Replace # with your Google Maps link -->
+                        <h3 class="location-font" data-en="How to Get There" data-bg="Как да стигнете">Как да стигнете</h3>
                         <a class="btn" href="https://maps.app.goo.gl/fK75tLhFqYxxpect7" target="_blank" data-en="Open in Maps" data-bg="Отвори в картите">Отвори в картите</a>
                     </div>
 
-                </div>
+                    <!-- TAXI block -->
+                    <div class="info-block">
+                        <span class="info-block__icon">🚕</span>
+                        <h3 class="location-font" data-en="Taxi" data-bg="Такси">Такси</h3>
+                        <p data-en="Taxi information will be added here." data-bg="Информация за такси ще бъде добавена тук.">Информация за такси ще бъде добавена тук.</p>
+                    </div>
 
-                <!-- OPTIONAL: embed a Google Map iframe
-                     Replace the src URL with your venue's embed link
-                     from Google Maps > Share > Embed a map
-                <div class="map-embed">
-                    <iframe src="YOUR_GOOGLE_MAPS_EMBED_URL"
-                        width="100%" height="300" style="border:0;"
-                        allowfullscreen="" loading="lazy">
-                    </iframe>
+                    <!-- BUS block -->
+                    <div class="info-block">
+                        <span class="info-block__icon">🚌</span>
+                        <h3 class="location-font" data-en="Bus" data-bg="Автобус">Автобус</h3>
+                        <p data-en="Bus information will be added here." data-bg="Информация за автобус ще бъде добавена тук.">Информация за автобус ще бъде добавена тук.</p>
+                    </div>
+
                 </div>
-                -->
 
             </div>
         </div>
