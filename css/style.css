@@ -158,7 +158,7 @@ fieldset {
     box-sizing: border-box;
     border: var(--border-w) solid transparent;
     border-image-source: url('../images/shutterstock_2124199241-1.svg');
-    border-image-slice: 125 135 134 143;
+    border-image-slice: 125 135 134 143 fill;
     border-image-repeat: round;
 }
 
@@ -372,8 +372,7 @@ fieldset {
     bottom: clamp(130px, 12vw, 160px);
     left: 50%;
     transform: translateX(-50%);
-    /* Subtract BOTH left and right border widths so paper fits symmetrically */
-    width: calc(100% - 2 * var(--border-w));
+    width: calc(100% - var(--border-w));
 
     background-color: #fdfaf5;
     border-radius: clamp(12px, 2.5vw, 36px) clamp(14px, 2.8vw, 40px) clamp(12px, 2.5vw, 38px) clamp(10px, 2.2vw, 32px);
@@ -1204,7 +1203,6 @@ a.rec-link:focus-visible {
 @media (max-width: 540px) {
 
     :root {
-        --border-w:     90px;
         --frame-bottom: 70px;
         --nav-height:   78px;
     }
@@ -1215,12 +1213,13 @@ a.rec-link:focus-visible {
         padding-top: var(--nav-height);
     }
 
-    /* Frame and paper — flush below navbar on mobile */
     #page-frame {
         top: var(--nav-height);
     }
     #page-wrap::before {
         top: calc(var(--nav-height) + clamp(32px, 8vw, 140px) + 20px);
+        /* Wider canvas: subtract only half the border on each side */
+        width: calc(95% - var(--border-w));
     }
 
     /* Navbar — compact column; right padding reserves space for fixed EN button */
