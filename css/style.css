@@ -672,54 +672,56 @@ fieldset {
 .tl-item {
     position: relative;
     display: flex;
-    align-items: center;
-    gap: 18px;
+    align-items: flex-start;
     margin-bottom: 44px;
-    min-height: 64px;
 }
 
 .tl-item:last-child { margin-bottom: 0; }
 
-/* Horizontal connector line from text to centre line */
+/* Connector line touches the centre line at the icon's vertical centre (27px) */
 .tl-item__dot {
     position: absolute;
-    top: 50%;
+    top: 27px;
+    transform: translateY(-50%);
     width: 22px; height: 1.5px;
     border-radius: 1px;
     background: var(--text-dark);
     opacity: 0.35;
     z-index: 2;
-    flex-shrink: 0;
 }
 
-/* Left items: line's right edge meets the centre line */
+/* Left: line's right edge meets the centre line */
 .tl-item--left .tl-item__dot {
     right: calc(50% - 1px);
-    transform: translateY(-50%);
     left: auto;
 }
 
-/* Right items: line's left edge starts at the centre line */
+/* Right: line's left edge starts at the centre line */
 .tl-item--right .tl-item__dot {
     left: calc(50% - 1px);
-    transform: translateY(-50%);
 }
 
-/* LEFT items: icon+text clustered together near the centre line */
+/* LEFT items: column near centre, right-aligned */
 .tl-item--left {
     padding-right: calc(50% + 20px);
-    flex-direction: row;
     justify-content: flex-end;
 }
 
-.tl-item--left .tl-item__text { text-align: right; }
-
-/* RIGHT items: icon+text clustered together near the centre line */
+/* RIGHT items: column near centre, left-aligned */
 .tl-item--right {
     padding-left: calc(50% + 20px);
-    flex-direction: row;
     justify-content: flex-start;
 }
+
+/* Vertical column: icon → time → event */
+.tl-item__col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tl-item--left .tl-item__col  { align-items: flex-end;   text-align: right; }
+.tl-item--right .tl-item__col { align-items: flex-start; text-align: left;  }
 
 .tl-item__icon {
     flex-shrink: 0;
@@ -732,6 +734,7 @@ fieldset {
 
 .tl-item__icon svg { width: 100%; height: 100%; }
 
+/* Keep .tl-item__text in case it's referenced elsewhere */
 .tl-item__text {
     display: flex;
     flex-direction: column;
@@ -1291,9 +1294,12 @@ a.rec-link:focus-visible {
 
     /* Timeline — keep alternating layout, smaller + tighter on mobile */
     .tl-item__icon { width: 32px; height: 32px; }
-    .tl-item { margin-bottom: 24px; gap: 8px; min-height: 48px; }
+    .tl-item__dot  { top: 16px; width: 16px; } /* centred on smaller icon */
+    .tl-item { margin-bottom: 24px; }
     .tl-item--left  { padding-right: calc(50% + 12px); justify-content: flex-end; }
     .tl-item--right { padding-left:  calc(50% + 12px); justify-content: flex-start; }
+    .tl-item__time  { font-size: 0.72rem; }
+    .tl-item__event { font-size: 0.65rem; letter-spacing: 0.08em; }
     .tl-item__time  { font-size: 0.75rem; }
     .tl-item__event { font-size: 0.68rem; letter-spacing: 0.08em; }
 
