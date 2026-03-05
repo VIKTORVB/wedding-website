@@ -97,32 +97,32 @@
                 <div class="info-grid">
 
                     <div class="info-block">
-                        <span class="info-block__icon" aria-hidden="true">🏛️</span>
+                        <img class="info-block__icon" src="images/pin.svg" alt="" aria-hidden="true">
                         <h3 class="location-font" data-en="Agora" data-bg="Агора">Агора</h3>
-                        <p data-en="Venue description will be added here." data-bg="Agora е съставено от 12 декара ">Описание на мястото ще бъде добавено тук.</p>
+                        <p data-en="A beautiful open space in a pine forest, close to Pancharevo Lake" data-bg="Прекрасно отворено пространство в борова гора, в непосредствена близост до Панчаревското езеро">Описание на мястото ще бъде добавено тук.</p>
                     </div>
 
                     <div class="info-block">
-                        <span class="info-block__icon" aria-hidden="true">🗺️</span>
+                        <img class="info-block__icon" src="images/map.svg" alt="" aria-hidden="true">
                         <h3 class="location-font" data-en="How to Get There" data-bg="Как да стигнете">Как да стигнете</h3>
                         <a class="btn"
                            href="https://maps.app.goo.gl/fK75tLhFqYxxpect7"
                            target="_blank"
                            rel="noopener noreferrer"
                            data-en="Open in Maps"
-                           data-bg="Отвори в картите">Отвори в картите</a>
+                           data-bg="Отвори на карта">Отвори на карта</a>
                     </div>
 
                     <div class="info-block">
-                        <span class="info-block__icon" aria-hidden="true">🚕</span>
+                        <img class="info-block__icon" src="images/get-there-car.svg" alt="" aria-hidden="true">
                         <h3 class="location-font" data-en="Taxi" data-bg="Такси">Такси</h3>
-                        <p data-en="Taxi information will be added here." data-bg="Информация за такси ще бъде добавена тук.">Информация за такси ще бъде добавена тук.</p>
+                        <p data-en="Taxies travel to the venue on a regular basis, you can use any preferred taxi service." data-bg="Таксита пътуват до мястото редовнo. Можете да използвате всяка предпочитана таксиметрова услуга.">Информация за такси ще бъде добавена тук.</p>
                     </div>
 
                     <div class="info-block">
-                        <span class="info-block__icon" aria-hidden="true">🚌</span>
+                        <img class="info-block__icon" src="images/bus.svg" alt="" aria-hidden="true">
                         <h3 class="location-font" data-en="Bus" data-bg="Автобус">Автобус</h3>
-                        <p data-en="Bus information will be added here." data-bg="Информация за автобус ще бъде добавена тук.">Информация за автобус ще бъде добавена тук.</p>
+                        <p data-en="For the more adventurous guests , there is a public bus that stop 15min away from the venue." data-bg="За по-приключенските гости, има обществен автобус, който спира на 15 минути от мястото.">Информация за автобус ще бъде добавена тук.</p>
                     </div>
 
                 </div>
@@ -333,7 +333,7 @@
                                autocomplete="name"
                                required
                                data-en-placeholder="Your full name"
-                               data-bg-placeholder="Вашето пълно ime">
+                               data-bg-placeholder="Вашето пълно име">
                     </div>
 
                     <!-- Attendance — fieldset + legend for screen readers -->
@@ -350,6 +350,15 @@
                             </label>
                         </div>
                     </fieldset>
+
+                    <!-- Song request -->
+                    <div class="form-group">
+                        <label for="song"><span data-en="Song Request" data-bg="Поръчайте си песен">Поръчайте си песен</span> <span class="optional" data-en="(To make sure that everyone takes part on the dancefloor please place a song request)" data-bg="(За да се уверим, че всички ще се включат на дансинга, моля, поръчайте си песен)">(по избор)</span></label>
+                        <input type="text" id="song" name="song"
+                               placeholder="Изпълнител — Заглавие"
+                               data-en-placeholder="Artist — Song title"
+                               data-bg-placeholder="Изпълнител — Заглавие">
+                    </div>
 
                     <button type="submit" class="btn btn--submit body-font" data-en="Submit RSVP" data-bg="Изпрати Присъствие">Изпрати Присъствие</button>
 

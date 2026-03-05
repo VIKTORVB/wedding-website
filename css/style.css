@@ -630,7 +630,9 @@ fieldset {
 .info-block__icon {
     font-size: 1.8rem;
     display: block;
-    margin-bottom: 16px;
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 16px;
     animation: gentleFloat 4s ease-in-out infinite;
 }
 
@@ -860,6 +862,13 @@ fieldset.form-group legend + * {
     letter-spacing: 0.02em;
     color: inherit;
     opacity: 0.85;
+}
+
+.form-group > label .optional {
+    font-size: 0.78rem;
+    opacity: 0.55;
+    letter-spacing: 0.04em;
+    font-family: var(--font-body);
 }
 
 .form-group input[type="text"] {
