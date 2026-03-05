@@ -496,15 +496,6 @@ fieldset {
     border-color: rgba(163, 184, 108, 0.2);
 }
 
-/* Card overrides on paper */
-.paper-canvas .detail-card {
-    background: rgba(160, 140, 110, 0.045);
-    border-color: rgba(160, 140, 110, 0.1);
-}
-
-.paper-canvas .detail-card:hover {
-    box-shadow: 0 8px 24px rgba(80, 60, 30, 0.05);
-}
 
 .paper-canvas .rec-card {
     background: rgba(160, 140, 110, 0.04);
@@ -727,14 +718,35 @@ fieldset {
 
 .tl-item__icon {
     flex-shrink: 0;
-    width: 54px; height: 54px;
+    width: 90px; height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0.68;
 }
 
-.tl-item__icon svg { width: 100%; height: 100%; }
+.tl-item__icon svg,
+.tl-item__icon img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Larger icons for cocktail-hour, rings, party */
+.tl-item__icon img[src*="dinner"],
+.tl-item__icon img[src*="party"] {
+    width: 130%;
+    height: 130%;
+}
+.tl-item__icon img[src*="rings"]{
+    width: 300%;
+    height: 300%;
+}
+
+/* Nudge rings and party upward */
+.tl-item__icon img[src*="party"],
+.tl-item__icon img[src*="camera"] {
+    transform: translateY(-12px);
+}
+.tl-item__icon img[src*="rings"] {
+    transform: translateY(-25px);
+}
 
 /* Keep .tl-item__text in case it's referenced elsewhere */
 .tl-item__text {
@@ -766,52 +778,47 @@ fieldset {
 /* ================================================================
    13. SECTION 4 — GOOD TO KNOW (cards)
 ================================================================ */
-.cards-grid {
-    display: grid;
-    /* auto-fit so cards reflow gracefully at any width */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 28px;
-}
-
-.detail-card {
-    background: rgba(255,255,255,0.35);
-    border-radius: 16px;
-    padding: 36px 26px;
-    text-align: center;
-    border: 1.5px solid rgba(58,53,48,0.08);
-    transition: transform var(--transition), box-shadow var(--transition);
-    position: relative;
-}
-
-/* Slight playful tilt for middle card */
-.detail-card:nth-child(2) { transform: rotate(0.8deg); }
-.detail-card:nth-child(2):hover { transform: rotate(0deg) translateY(-4px); }
-
-.detail-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.06);
-}
-
-.detail-card__icon {
-    font-size: 2rem;
+.details-hero {
     display: block;
-    margin-bottom: 16px;
+    width: clamp(120px, 30vw, 200px);
+    margin: 0 auto 12px;
+    opacity: 0.82;
     animation: gentleFloat 5s ease-in-out infinite;
 }
 
-.detail-card h3 {
+.details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 32px;
+}
+
+.details-item {
+    text-align: center;
+}
+
+.details-item h3 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     color: var(--text-dark);
 }
 
-.detail-card p {
+.details-item p {
     font-size: 0.86rem;
     line-height: 1.8;
     color: var(--text-dark);
     opacity: 0.72;
+}
+
+.details-sign {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.65;
+    margin-top: 8px;
 }
 
 
@@ -1202,8 +1209,7 @@ a.rec-link:focus-visible {
     .hero-image { flex: 0 0 auto; width: clamp(160px, 50vw, 260px); height: auto; max-height: none; }
 
     /* Grids — single column */
-    .info-grid,
-    .cards-grid {
+    .info-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
@@ -1214,7 +1220,7 @@ a.rec-link:focus-visible {
     }
 
     /* Timeline — reduce icon size on tablet */
-    .tl-item__icon { width: 44px; height: 44px; }
+    .tl-item__icon { width: 72px; height: 72px; }
     .tl-item { margin-bottom: 32px; }
 
     /* Nav — smaller */
@@ -1293,16 +1299,8 @@ a.rec-link:focus-visible {
     .info-block h3 { font-size: 1.2rem; }
     .info-block p  { font-size: 0.82rem; }
 
-    /* Cards */
-    .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
-    .detail-card { padding: 20px 16px; }
-    .detail-card:nth-child(2) { transform: none; }
-
     /* Timeline — keep alternating layout, smaller + tighter on mobile */
-    .tl-item__icon { width: 32px; height: 32px; }
+    .tl-item__icon {         width: 52px; height: 52px;      }
     .tl-item__dot  { top: 16px; width: 16px; } /* centred on smaller icon */
     .tl-item { margin-bottom: 24px; }
     .tl-item--left  { padding-right: calc(50% + 12px); justify-content: flex-end; }
