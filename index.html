@@ -30,7 +30,10 @@
          NAVIGATION — sticky top bar with section links
     ================================================================ -->
     <nav id="navbar" aria-label="Main navigation">
-        <ul>
+        <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-menu">
             <li><a href="#title"   data-en="Home"    data-bg="Начало">Начало</a></li>
             <li><a href="#details" data-en="Venue"   data-bg="Място">Място</a></li>
             <li><a href="#program" data-en="Program" data-bg="Програма">Програма</a></li>
@@ -41,9 +44,7 @@
         <button id="lang-toggle" aria-label="Toggle language">EN</button>
     </nav>
 
-    <!-- Page-wrap: spans the full scrollable page; frame is drawn around it -->
     <div id="page-wrap">
-    <div id="page-frame" aria-hidden="true"></div>
 
     <main id="main-content">
 
@@ -74,6 +75,12 @@
 
             </div>
         </div>
+
+        <a href="#details" class="scroll-hint" aria-label="Scroll down">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/>
+            </svg>
+        </a>
     </section>
 
 
@@ -238,7 +245,7 @@
         <div class="frame paper-canvas">
             <div class="section__content section__content--center">
 
-                <img class="details-hero" src="images/get-there-car.svg" alt="" aria-hidden="true">
+                <img class="details-hero" src="images/rings.svg" alt="" aria-hidden="true">
 
                 <h2 class="section__title headline-font" data-en="The Details" data-bg="Детайли">Детайли</h2>
 
@@ -346,7 +353,7 @@
 
                     <!-- Song request -->
                     <div class="form-group">
-                        <label for="song"><span data-en="Song Request" data-bg="Поръчайте си песен">Поръчайте си песен</span> <span class="optional" data-en="(To make sure that everyone takes part on the dancefloor please place a song request)" data-bg="(За да се уверим, че всички ще се включат на дансинга, моля, поръчайте си песен)">(по избор)</span></label>
+                        <label for="song"><span data-en="Song Request" data-bg="Поръчайте си песен">Поръчайте си песен</span> <span class="optional" data-en="(optional)" data-bg="(по избор)">(по избор)</span></label>
                         <input type="text" id="song" name="song"
                                placeholder="Изпълнител — Заглавие"
                                data-en-placeholder="Artist — Song title"
