@@ -303,7 +303,7 @@ fieldset {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - var(--nav-height));
+    min-height: auto;
     border-bottom: 1px solid rgba(58, 53, 48, 0.08);
     color: var(--text-dark);
 }
@@ -560,7 +560,7 @@ fieldset {
     position: relative;
     display: flex;
     align-items: flex-start;
-    margin-bottom: 44px;
+    margin-bottom: 12px;
 }
 
 .tl-item:last-child { margin-bottom: 0; }
@@ -612,7 +612,7 @@ fieldset {
 
 .tl-item__icon {
     flex-shrink: 0;
-    width: 90px; height: 90px;
+    width: 64px; height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1178,8 +1178,8 @@ a.rec-link:focus-visible {
     }
 
     /* Timeline — reduce icon size on tablet */
-    .tl-item__icon { width: 72px; height: 72px; }
-    .tl-item { margin-bottom: 32px; }
+    .tl-item__icon { width: 56px; height: 56px; }
+    .tl-item { margin-bottom: 10px; }
 
     /* Nav — smaller */
     #navbar ul { gap: 8px 16px; }
@@ -1274,14 +1274,16 @@ a.rec-link:focus-visible {
     .info-block h3 { font-size: 1.2rem; }
     .info-block p  { font-size: 0.82rem; }
 
-    /* Timeline — keep alternating layout, smaller + tighter on mobile */
+    /* Timeline — large icons & text, zero gap between items */
     .tl-item__icon  { width: 90px; height: 90px; }
-    .tl-item__dot   { top: 22px; width: 30px; }
-    .tl-item        { margin-bottom: 28px; }
-    .tl-item--left  { padding-right: calc(50% + 40px); justify-content: flex-end; }
-    .tl-item--right { padding-left:  calc(50% + 40px); justify-content: flex-start; }
+    .tl-item__dot   { top: 40px; width: 30px; }
+    .tl-item        { margin-bottom: 0; }
+    .tl-item__col   { gap: 0; }
+    .tl-item--left  { padding-right: calc(50% + 24px); justify-content: flex-end; }
+    .tl-item--right { padding-left:  calc(50% + 24px); justify-content: flex-start; }
     .tl-item__time  { font-size: 1.5rem; }
     .tl-item__event { font-size: 1rem; letter-spacing: 0.08em; }
+    #program.section { padding-top: 24px; padding-bottom: 24px; }
 
     /* Rec grid — single column */
     .rec-grid     { grid-template-columns: 1fr; gap: 12px; }
