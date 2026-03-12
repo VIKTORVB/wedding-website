@@ -485,11 +485,32 @@ fieldset {
     transform: translateY(60px);
 }
 
+@media (min-width: 861px) {
+.title-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: translateY(120px);
+}
+}
+
+/* Mobile (base) */
 .title-vase {
     width: clamp(260px, 28vw, 400px);
     height: auto;
     display: block;
     margin-top: 60px;
+}
+
+/* Desktop (> 860px) */
+@media (min-width: 861px) {
+    .title-vase {
+        width: clamp(480px, 28vw, 360px);
+        margin-top: 200px;
+        transform: none;
+    }
 }
 
 /* Grapes decorations — title section */
@@ -696,11 +717,30 @@ fieldset {
 /* ================================================================
    13. SECTION 4 — GOOD TO KNOW (cards)
 ================================================================ */
+/* Mobile (base) */
 .details-hero {
-    display: block;
-    width: clamp(120px, 30vw, 200px);
-    margin: 0 auto 12px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    bottom: auto;
+    left: auto;
+    width: 100px;
+    transform: none;
     opacity: 0.82;
+    pointer-events: none;
+    transform: translate(30px, -40px);
+}
+
+/* Desktop (> 860px) */
+@media (min-width: 861px) {
+    .details-hero {
+        top: 24px;
+        right: 24px;
+        bottom: auto;
+        left: auto;
+        width: 180px;
+        transform: translate(150px, -30px);
+    }
 }
 
 .details-list {
@@ -1373,12 +1413,12 @@ a.rec-link:focus-visible {
 
 /* ---- DESKTOP (all screens above 540px) ---- */
 
-#tl-text-cocktail { transform: none; }
-#tl-text-rings    { transform: none; }
-#tl-text-camera   { transform: none; }
-#tl-text-dinner   { transform: none; }
-#tl-text-cake     { transform: none; }
-#tl-text-party    { transform: none; }
+#tl-text-cocktail { transform: translateX(-20px) translateY(-25px); }
+#tl-text-rings    { transform: translateX(15px) translateY(-40px); }
+#tl-text-camera   { transform: translateX(-20px) translateY(-40px); }
+#tl-text-dinner   { transform: translateX(15px) translateY(-40px); }
+#tl-text-cake     { transform: translateX(-30px) translateY(-50px); }
+#tl-text-party    { transform: translateX(15px) translateY(-50px); }
 
 /* ---- MOBILE (≤540px) ---- */
 @media (max-width: 540px) {
@@ -1402,37 +1442,37 @@ a.rec-link:focus-visible {
 #tl-img-cocktail {
     width: 100%;
     height: 100%;
-    transform: none;
+    transform: translateX(-15px) translateY(-40px);
 }
 
 #tl-img-rings {
     width: 100%;
     height: 100%;
-    transform: none;
+    transform: translateX(15px) translateY(-50px);
 }
 
 #tl-img-camera {
-    width: 100%;
-    height: 100%;
-    transform: none;
+    width: 90%;
+    height: 90%;
+    transform: translateX(-15px) translateY(-50px);
 }
 
 #tl-img-dinner {
     width: 100%;
     height: 100%;
-    transform: none;
+    transform: translateX(15px) translateY(-50px);
 }
 
 #tl-img-cake {
-    width: 100%;
-    height: 100%;
-    transform: translateY(10px);
+    width: 120%;
+    height: 120%;
+    transform: translateX(-15px) translateY(-40px);
 }
 
 #tl-img-party {
     width: 100%;
     height: 100%;
-    transform: none;
+    transform: translateX(15px) translateY(-50px);
 }
 
 /* ---- MOBILE (≤540px) ---- */
