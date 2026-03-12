@@ -53,9 +53,8 @@
     ================================================================ -->
     <section id="title" class="section section--green" data-nav-color="#a3b86c">
 
-        <div class="doodle doodle--bottom-right doodle--tilt-cw doodle--float" aria-hidden="true">
-            <svg width="64" height="64" viewBox="0 0 64 64"><path d="M32 56 C20 44, 4 36, 4 22 A14 14 0 0 1 32 14 A14 14 0 0 1 60 22 C60 36, 44 44, 32 56z"/></svg>
-        </div>
+        <img class="grapes grapes--left"  src="images/grapes.svg" alt="" aria-hidden="true">
+        <img class="grapes grapes--right" src="images/grapes.svg" alt="" aria-hidden="true">
 
         <div class="frame paper-canvas">
             <div class="section__content title-layout">
@@ -151,11 +150,13 @@
                     <!-- 1 LEFT — Cocktail Hour -->
                     <div class="tl-item tl-item--left">
                         <div class="tl-item__col">
-                            <div class="tl-item__icon" aria-hidden="true">
-                                <img src="images/cocktail-hour.svg" alt="Cocktail Hour">
+                            <div id="tl-text-cocktail" class="tl-text-row">
+                                <time class="tl-item__time">15:00</time>
+                                <span class="tl-item__event" data-en="Cocktail" data-bg="Коктейл">Коктейл</span>
                             </div>
-                            <time class="tl-item__time">15:00</time>
-                            <span class="tl-item__event" data-en="Cocktail Hour" data-bg="Коктейл">Коктейл</span>
+                            <div class="tl-item__icon" aria-hidden="true">
+                                <img id="tl-img-cocktail" src="images/cocktail-hour.svg" alt="Cocktail Hour">
+                            </div>
                         </div>
                         <span class="tl-item__dot" aria-hidden="true"></span>
                     </div>
@@ -164,22 +165,26 @@
                     <div class="tl-item tl-item--right">
                         <span class="tl-item__dot" aria-hidden="true"></span>
                         <div class="tl-item__col">
-                            <div class="tl-item__icon" aria-hidden="true">
-                                <img id="rings" src="images/rings.svg" alt="Ceremony">
+                            <div id="tl-text-rings" class="tl-text-row">
+                                <time class="tl-item__time">16:00</time>
+                                <span class="tl-item__event" data-en="Ceremony" data-bg="Церемония">Начало на церемонията</span>
                             </div>
-                            <time class="tl-item__time">16:00</time>
-                            <span class="tl-item__event" data-en="Ceremony Begins" data-bg="Начало на церемонията">Начало на църемонията</span>
+                            <div class="tl-item__icon" aria-hidden="true">
+                                <img id="tl-img-rings" src="images/rings.svg" alt="Ceremony">
+                            </div>
                         </div>
                     </div>
 
                     <!-- 3 LEFT — Photos -->
                     <div class="tl-item tl-item--left">
                         <div class="tl-item__col">
-                            <div class="tl-item__icon" aria-hidden="true">
-                                <img src="images/camera.svg" alt="Photos">
+                            <div id="tl-text-camera" class="tl-text-row">
+                                <time class="tl-item__time">16:30</time>
+                                <span class="tl-item__event" data-en="Photos" data-bg="Снимки">Снимки</span>
                             </div>
-                            <time class="tl-item__time">16:30</time>
-                            <span class="tl-item__event" data-en="Photos" data-bg="Снимки">Снимки</span>
+                            <div class="tl-item__icon" aria-hidden="true">
+                                <img id="tl-img-camera" src="images/camera.svg" alt="Photos">
+                            </div>
                         </div>
                         <span class="tl-item__dot" aria-hidden="true"></span>
                     </div>
@@ -188,22 +193,26 @@
                     <div class="tl-item tl-item--right">
                         <span class="tl-item__dot" aria-hidden="true"></span>
                         <div class="tl-item__col">
-                            <div class="tl-item__icon" aria-hidden="true">
-                                <img src="images/dinner.svg" alt="Dinner">
+                            <div id="tl-text-dinner" class="tl-text-row">
+                                <time class="tl-item__time">18:00</time>
+                                <span class="tl-item__event" data-en="Reception" data-bg="Вечеря">Вечеря</span>
                             </div>
-                            <time class="tl-item__time">18:00</time>
-                            <span class="tl-item__event" data-en="Reception" data-bg="Вечеря">Вечеря</span>
+                            <div class="tl-item__icon" aria-hidden="true">
+                                <img id="tl-img-dinner" src="images/dinner.svg" alt="Dinner">
+                            </div>
                         </div>
                     </div>
 
                     <!-- 5 LEFT — Cake -->
                     <div class="tl-item tl-item--left">
                         <div class="tl-item__col">
-                            <div class="tl-item__icon" aria-hidden="true">
-                                <img src="images/cake.svg" alt="Cutting the Cake">
+                            <div id="tl-text-cake" class="tl-text-row">
+                                <time class="tl-item__time">22:00</time>
+                                <span class="tl-item__event" data-en="Cake" data-bg="Торта">Рязане на тортата</span>
                             </div>
-                            <time class="tl-item__time">22:00</time>
-                            <span class="tl-item__event" data-en="Cutting the Cake" data-bg="Рязане на тортата">Рязане на тортата</span>
+                            <div class="tl-item__icon" aria-hidden="true">
+                                <img id="tl-img-cake" src="images/cake.svg" alt="Cutting the Cake">
+                            </div>
                         </div>
                         <span class="tl-item__dot" aria-hidden="true"></span>
                     </div>
@@ -212,11 +221,13 @@
                     <div class="tl-item tl-item--right">
                         <span class="tl-item__dot" aria-hidden="true"></span>
                         <div class="tl-item__col">
-                            <div class="tl-item__icon" aria-hidden="true">
-                                <img src="images/party.svg" alt="Party">
+                            <div id="tl-text-party" class="tl-text-row">
+                                <time class="tl-item__time">23:30</time>
+                                <span class="tl-item__event" data-en="Party" data-bg="Парти">Парти</span>
                             </div>
-                            <time class="tl-item__time">23:30</time>
-                            <span class="tl-item__event" data-en="Party" data-bg="Парти">Парти</span>
+                            <div class="tl-item__icon" aria-hidden="true">
+                                <img id="tl-img-party" src="images/party.svg" alt="Party">
+                            </div>
                         </div>
                     </div>
 
@@ -239,7 +250,7 @@
         <div class="frame paper-canvas">
             <div class="section__content section__content--center">
 
-                <img class="details-hero" src="images/rings.svg" alt="" aria-hidden="true">
+                <img class="details-hero" src="images/Present.svg" alt="" aria-hidden="true">
 
                 <h2 class="section__title headline-font" data-en="The Details" data-bg="Детайли">Детайли</h2>
 

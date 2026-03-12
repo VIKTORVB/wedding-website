@@ -485,6 +485,18 @@ fieldset {
     justify-content: center;
 }
 
+/* Grapes decorations — title section */
+.grapes {
+    position: absolute;
+    top: 0;
+    width: clamp(80px, 12vw, 160px);
+    height: auto;
+    pointer-events: none;
+    opacity: 1;
+}
+.grapes--left  { left: 0; }
+.grapes--right { right: 0; transform: scaleX(-1); }
+
 .names {
     font-family: var(--font-heading);
     font-size: clamp(3.6rem, 7vw, 7.5rem);
@@ -614,19 +626,31 @@ fieldset {
     justify-content: flex-start;
 }
 
-/* Vertical column: icon → time → event */
+/* Column: text row on top, icon below */
 .tl-item__col {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 
 .tl-item--left .tl-item__col  { align-items: flex-end;   text-align: right; }
 .tl-item--right .tl-item__col { align-items: flex-start; text-align: left;  }
 
+/* Time + event on one line */
+.tl-item--left  .tl-text-row { justify-content: flex-end; }
+.tl-item--right .tl-text-row { justify-content: flex-start; }
+
+.tl-text-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+}
+
 .tl-item__icon {
     flex-shrink: 0;
-    width: 64px; height: 64px;
+    width: clamp(64px, 9vw, 160px);
+    height: clamp(64px, 9vw, 160px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -634,27 +658,8 @@ fieldset {
 }
 
 .tl-item__icon svg,
-.tl-item__icon img { width: 100%; height: 100%; object-fit: contain; }
+.tl-item__icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
 
-/* Larger icons for cocktail-hour, rings, party */
-.tl-item__icon img[src*="dinner"],
-.tl-item__icon img[src*="party"] {
-    width: 130%;
-    height: 130%;
-}
-.tl-item__icon img[src*="rings"]{
-    width: 300%;
-    height: 300%;
-}
-
-/* Nudge rings and party upward */
-.tl-item__icon img[src*="party"],
-.tl-item__icon img[src*="camera"] {
-    transform: translateY(-12px);
-}
-.tl-item__icon img[src*="rings"] {
-    transform: translateY(-25px);
-}
 
 /* Keep .tl-item__text in case it's referenced elsewhere */
 .tl-item__text {
@@ -664,22 +669,20 @@ fieldset {
     min-width: 0;
 }
 
-.tl-item__time {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 1.05rem;
-    opacity: 0.7;
-    letter-spacing: 0.05em;
-}
-
+.tl-item__time,
 .tl-item__event {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 1.5;
-    opacity: 0.82;
+    line-height: 1.4;
+    opacity: 0.85;
+}
+
+.tl-item__time {
+    opacity: 0.55;
+    flex-shrink: 0;
 }
 
 
@@ -1192,7 +1195,7 @@ a.rec-link:focus-visible {
     }
 
     /* Timeline — reduce icon size on tablet */
-    .tl-item__icon { width: 56px; height: 56px; }
+    .tl-item__icon { width: clamp(56px, 6vw, 96px); height: clamp(56px, 6vw, 96px); }
     .tl-item { margin-bottom: 10px; }
 
     /* Nav — smaller */
@@ -1295,8 +1298,8 @@ a.rec-link:focus-visible {
     .tl-item__col   { gap: 0; }
     .tl-item--left  { padding-right: calc(50% + 24px); justify-content: flex-end; }
     .tl-item--right { padding-left:  calc(50% + 24px); justify-content: flex-start; }
-    .tl-item__time  { font-size: 1.5rem; }
-    .tl-item__event { font-size: 1rem; letter-spacing: 0.08em; }
+    .tl-item__time,
+    .tl-item__event { font-size: 0.78rem; letter-spacing: 0.07em; }
     #program.section { padding-top: 24px; padding-bottom: 24px; }
 
     /* Rec grid — single column */
@@ -1352,4 +1355,116 @@ a.rec-link:focus-visible {
 
     /* Keep fade-in elements visible — no invisible flash */
     .fade-in { opacity: 1; transform: none; }
+}
+
+
+/* ================================================================
+   TIMELINE TEXT ADJUSTMENTS
+   Use transform to nudge each text row (translateX / translateY).
+   Values apply per breakpoint (desktop / mobile).
+================================================================ */
+
+/* ---- DESKTOP (all screens above 540px) ---- */
+
+#tl-text-cocktail { transform: none; }
+#tl-text-rings    { transform: none; }
+#tl-text-camera   { transform: none; }
+#tl-text-dinner   { transform: none; }
+#tl-text-cake     { transform: none; }
+#tl-text-party    { transform: none; }
+
+/* ---- MOBILE (≤540px) ---- */
+@media (max-width: 540px) {
+    #tl-text-cocktail { transform: translateX(-10px); }
+    #tl-text-rings    { transform: none; }
+    #tl-text-camera   { transform: translateX(-20px); }
+    #tl-text-dinner   { transform: none; }
+    #tl-text-cake     { transform: translateY(-30px) translateX(-25px); }
+    #tl-text-party    { transform: translateX(15px); }
+}
+
+
+/* ================================================================
+   TIMELINE IMAGE ADJUSTMENTS
+   Edit width/height to resize, transform to reposition.
+   Values apply per breakpoint (desktop / mobile).
+================================================================ */
+
+/* ---- DESKTOP (all screens above 540px) ---- */
+
+#tl-img-cocktail {
+    width: 100%;
+    height: 100%;
+    transform: none;
+}
+
+#tl-img-rings {
+    width: 100%;
+    height: 100%;
+    transform: none;
+}
+
+#tl-img-camera {
+    width: 100%;
+    height: 100%;
+    transform: none;
+}
+
+#tl-img-dinner {
+    width: 100%;
+    height: 100%;
+    transform: none;
+}
+
+#tl-img-cake {
+    width: 100%;
+    height: 100%;
+    transform: translateY(10px);
+}
+
+#tl-img-party {
+    width: 100%;
+    height: 100%;
+    transform: none;
+}
+
+/* ---- MOBILE (≤540px) ---- */
+@media (max-width: 540px) {
+
+    #tl-img-cocktail {
+        width: 100%;
+        height: 100%;
+        transform: translateX(-15px);
+    }
+
+    #tl-img-rings {
+        width: 100%;
+        height: 100%;
+        transform: translateX(15px);
+    }
+
+    #tl-img-camera {
+        width: 100%;
+        height: 100%;
+        transform: translateX(-8px) translateX(-15px);
+    }
+
+    #tl-img-dinner {
+        width: 100%;
+        height: 100%;
+        transform: translateX(15px);
+    }
+
+    #tl-img-cake {
+        width: 150%;
+        height: 150%;
+        transform: translateY(-10px) translateX(-15px);
+    }
+
+    #tl-img-party {
+        width: 100%;
+        height: 100%;
+        transform: translateX(15px);
+    }
+
 }
