@@ -445,10 +445,10 @@ fieldset {
 ================================================================ */
 .title-layout {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(8px, 1.5vw, 24px);
+    gap: 0;
     width: 100%;
 }
 
@@ -477,12 +477,19 @@ fieldset {
 }
 
 .title-text {
-    flex: 1 1 0;
-    min-width: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    transform: translateY(60px);
+}
+
+.title-vase {
+    width: clamp(260px, 28vw, 400px);
+    height: auto;
+    display: block;
+    margin-top: 60px;
 }
 
 /* Grapes decorations — title section */
@@ -1375,12 +1382,12 @@ a.rec-link:focus-visible {
 
 /* ---- MOBILE (≤540px) ---- */
 @media (max-width: 540px) {
-    #tl-text-cocktail { transform: translateX(-10px); }
-    #tl-text-rings    { transform: none; }
-    #tl-text-camera   { transform: translateX(-20px); }
-    #tl-text-dinner   { transform: none; }
+    #tl-text-cocktail { transform: translateX(-10px) translateY(-15px); }
+    #tl-text-rings    { transform: translateY(-25px); }
+    #tl-text-camera   { transform: translateX(-20px) translateY(-15px); }
+    #tl-text-dinner   { transform: translateY(-20px); }
     #tl-text-cake     { transform: translateY(-30px) translateX(-25px); }
-    #tl-text-party    { transform: translateX(15px); }
+    #tl-text-party    { transform: translateX(15px) translateY(-20px); }
 }
 
 
@@ -1434,25 +1441,25 @@ a.rec-link:focus-visible {
     #tl-img-cocktail {
         width: 100%;
         height: 100%;
-        transform: translateX(-15px);
+        transform: translateX(-15px) translateY(-15px);
     }
 
     #tl-img-rings {
         width: 100%;
         height: 100%;
-        transform: translateX(15px);
+        transform: translateX(15px) translateY(-30px);
     }
 
     #tl-img-camera {
         width: 100%;
         height: 100%;
-        transform: translateX(-8px) translateX(-15px);
+        transform: translateX(-15px) translateY(-20px);
     }
 
     #tl-img-dinner {
         width: 100%;
         height: 100%;
-        transform: translateX(15px);
+        transform: translateX(15px) translateY(-20px);
     }
 
     #tl-img-cake {
@@ -1464,7 +1471,7 @@ a.rec-link:focus-visible {
     #tl-img-party {
         width: 100%;
         height: 100%;
-        transform: translateX(15px);
+        transform: translateX(15px) translateY(-20px);
     }
 
 }
