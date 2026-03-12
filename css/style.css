@@ -492,7 +492,7 @@ fieldset {
     align-items: center;
     justify-content: center;
     text-align: center;
-    transform: translateY(120px);
+    transform: translateY(40px);
 }
 }
 
@@ -507,8 +507,8 @@ fieldset {
 /* Desktop (> 860px) */
 @media (min-width: 861px) {
     .title-vase {
-        width: clamp(480px, 28vw, 360px);
-        margin-top: 200px;
+        width: clamp(260px, 28vw, 360px);
+        margin-top: 40px;
         transform: none;
     }
 }
@@ -532,6 +532,7 @@ fieldset {
     color: inherit;
     line-height: 1.1;
     margin-bottom: 16px;
+    white-space: nowrap;
 }
 
 .tagline {
