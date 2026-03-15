@@ -441,14 +441,29 @@ fieldset {
 
 
 /* ================================================================
-   10. SECTION 1 — TITLE PAGE (horizontal hero)
+   10. SECTION 1 — TITLE PAGE
 ================================================================ */
-.title-layout {
+
+/* Make section a full-height positioning context */
+#title.section {
+    height: calc(100vh - var(--nav-height));
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
+}
+
+/* Stretch frame to fill section height */
+#title .frame {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
+    height: 100%;
+}
+
+/* Title layout fills frame and is the positioning context */
+.title-layout {
+    position: relative;
+    flex: 1;
+    display: block;
     width: 100%;
 }
 
@@ -476,41 +491,28 @@ fieldset {
     object-fit: contain;
 }
 
+/* Text block: positioned at ~38% from top */
 .title-text {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    transform: translateY(60px);
 }
 
-@media (min-width: 861px) {
-.title-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transform: translateY(40px);
-}
-}
-
-/* Mobile (base) */
+/* Vase: sized by viewport height, anchored to bottom */
 .title-vase {
-    width: clamp(260px, 28vw, 400px);
-    height: auto;
+    position: absolute;
+    bottom: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    height: clamp(160px, 38vh, 420px);
+    width: auto;
     display: block;
-    margin-top: 60px;
-}
-
-/* Desktop (> 860px) */
-@media (min-width: 861px) {
-    .title-vase {
-        width: clamp(260px, 28vw, 360px);
-        margin-top: 40px;
-        transform: none;
-    }
 }
 
 /* Grapes decorations — title section */
@@ -578,7 +580,7 @@ fieldset {
 
 .info-block h3 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.85rem);
     font-weight: 400;
     margin-bottom: 12px;
 }
@@ -751,32 +753,30 @@ fieldset {
 .info-leaves {
     position: absolute;
     top: 16px;
-    width: clamp(80px, 18vw, 140px);
-    height: auto;
+    height: clamp(80px, 18vw, 140px);
+    width: auto;
     pointer-events: none;
     opacity: 1;
 }
-.info-leaves--left  { left: 0; }
-.info-leaves--right { right: 0; transform: scaleX(-1); }
+.info-leaves--left  { left: 0;  top: 36px; transform-origin: top left;  transform: rotate(90deg) translateY(-100%); }
+.info-leaves--right { right: 0; top: 16px; transform-origin: top right; transform: scaleX(-1) rotate(90deg) translateY(-100%); }
 
 /* Desktop (> 860px) */
 @media (min-width: 861px) {
     .info-leaves {
-        top: 20px;
-        width: clamp(100px, 12vw, 180px);
+        height: clamp(100px, 12vw, 180px);
     }
-    .info-leaves--left  { left: 0; transform: none; }
-    .info-leaves--right { right: 0; transform: scaleX(-1); }
+    .info-leaves--left  { left: 0;  top: 20px; transform-origin: top left;  transform: rotate(90deg) translateY(-100%); }
+    .info-leaves--right { right: 0; top: 86px; transform-origin: top right; transform: scaleX(-1) rotate(90deg) translateY(-100%); }
 }
 
 /* Small mobile (≤ 540px) */
 @media (max-width: 540px) {
     .info-leaves {
-        top: 8px;
-        width: clamp(60px, 20vw, 110px);
+        height: clamp(60px, 20vw, 110px);
     }
-    .info-leaves--left  { left: 0; transform: none; }
-    .info-leaves--right { right: 0; transform: scaleX(-1); }
+    .info-leaves--left  { left: 0;  top: 12px; transform-origin: top left;  transform: rotate(90deg) translateY(-100%); }
+    .info-leaves--right { right: 0; top: 48px; transform-origin: top right; transform: scaleX(-1) rotate(90deg) translateY(-100%); }
 }
 
 .details-list {
@@ -794,7 +794,7 @@ fieldset {
 
 .details-item h3 {
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: clamp(1.3rem, 3.5vw, 1.85rem);
     font-weight: 400;
     margin-bottom: 8px;
     color: var(--text-dark);
@@ -1255,13 +1255,6 @@ a.rec-link:focus-visible {
         --section-pad-v: clamp(56px, 8vh, 96px);
     }
 
-    /* Title layout — stack vertically */
-    .title-layout {
-        flex-direction: column;
-        text-align: center;
-        gap: 28px;
-    }
-    .title-text { align-items: center; }
     .paper-canvas .title-layout { text-align: center; }
 
     .hero-image { flex: 0 0 auto; width: clamp(160px, 50vw, 260px); height: auto; max-height: none; }
@@ -1371,7 +1364,7 @@ a.rec-link:focus-visible {
         grid-template-columns: 1fr;
         gap: 18px;
     }
-    .info-block h3 { font-size: 1.2rem; }
+    .info-block h3 { font-size: clamp(1rem, 4.5vw, 1.3rem); }
     .info-block p  { font-size: 0.82rem; }
 
     /* Timeline — large icons & text, zero gap between items */
