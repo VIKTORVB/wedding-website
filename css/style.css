@@ -323,7 +323,7 @@ fieldset {
 }
 
 /* Hero gets full viewport height */
-#title.section { min-height: calc(100vh - var(--nav-height)); }
+#title.section { min-height: calc(100dvh - var(--nav-height)); }
 
 /* Scroll hint arrow on hero */
 .scroll-hint {
@@ -446,7 +446,7 @@ fieldset {
 
 /* Make section a full-height positioning context */
 #title.section {
-    height: calc(100vh - var(--nav-height));
+    height: calc(100dvh - var(--nav-height));
     padding-top: 0;
     padding-bottom: 0;
     align-items: stretch;
