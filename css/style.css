@@ -31,17 +31,21 @@
    1. CSS VARIABLES
 ================================================================ */
 :root {
+    /* — Light/white base color — */
+    --color-light:     #FFF8E7;
+    --color-light-rgb: 255, 248, 231;
+
     /* — Pastel palette — */
     --color-green:    #635d1f;
     --color-orange:   #d4976a;
     --color-blue:     #c5dde8;
-    --color-pink:     #f9eee0;
+    --color-pink:     var(--color-light);
 
     /* — Text — */
-    --text-light:     #f9eee0;
+    --text-light:     var(--color-light);
     --text-dark:      #3a3530;
     --text-muted:     rgba(58,53,48,0.55);
-    --text-muted-lt:  rgba(249,238,224,0.70);
+    --text-muted-lt:  rgba(var(--color-light-rgb),0.70);
 
     /* — Typography — */
     --font-heading:   'WeddingHeader', 'Caveat', 'Segoe Script', cursive;
@@ -60,11 +64,11 @@
     --nav-height: 56px;
 
     /* — Section backgrounds (light tints of palette) — */
-    --bg-base:   #f9eee0;
-    --bg-sage:   #f9eee0;
-    --bg-warm:   #f9eee0;
+    --bg-base:   var(--color-light);
+    --bg-sage:   var(--color-light);
+    --bg-warm:   var(--color-light);
     --bg-blue:   #ecf5f8;
-    --bg-rose:   #f9eee0;
+    --bg-rose:   var(--color-light);
 
     /* — Transitions — */
     --transition:      0.35s ease;
@@ -349,11 +353,11 @@ fieldset {
 
 /* Paper-white sections (Venue, Details, Explore) */
 .section--orange,
-.section--pink  { background-color: #f9eee0; color: var(--text-dark); }
+.section--pink  { background-color: var(--color-light); color: var(--text-dark); }
 
 /* Divider tone: subtle white on green, subtle dark on paper */
 .section--green,
-.section--blue  { border-bottom-color: rgba(249, 238, 224, 0.15); }
+.section--blue  { border-bottom-color: rgba(var(--color-light-rgb), 0.15); }
 
 .frame {
     width: 100%;
@@ -944,8 +948,8 @@ fieldset.form-group legend + * {
     font-weight: 600;
 }
 .section--green .radio-label:has(input[type="radio"]:checked) {
-    background: rgba(249, 238, 224, 0.22);
-    border-color: rgba(249, 238, 224, 0.9);
+    background: rgba(var(--color-light-rgb), 0.22);
+    border-color: rgba(var(--color-light-rgb), 0.9);
 }
 
 .form-success {
@@ -1052,7 +1056,7 @@ a.rec-link:focus-visible {
 ================================================================ */
 .footer {
     background: #2c2822;
-    color: rgba(249,238,224,0.7);
+    color: rgba(var(--color-light-rgb),0.7);
     text-align: center;
     padding: 28px 16px;
     font-size: 0.875rem;
@@ -1180,47 +1184,47 @@ a.rec-link:focus-visible {
 .section--green .btn,
 .section--blue  .btn {
     color: var(--text-light);
-    border-color: rgba(249, 238, 224, 0.45);
+    border-color: rgba(var(--color-light-rgb), 0.45);
 }
 .section--green .btn:hover,
 .section--blue  .btn:hover {
-    background: rgba(249, 238, 224, 0.15);
+    background: rgba(var(--color-light-rgb), 0.15);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 .section--green .btn--submit,
 .section--blue  .btn--submit {
-    background: rgba(249, 238, 224, 0.1);
-    border-color: rgba(249, 238, 224, 0.3);
+    background: rgba(var(--color-light-rgb), 0.1);
+    border-color: rgba(var(--color-light-rgb), 0.3);
 }
 .section--green .btn--submit:hover,
-.section--blue  .btn--submit:hover { background: rgba(249, 238, 224, 0.22); }
+.section--blue  .btn--submit:hover { background: rgba(var(--color-light-rgb), 0.22); }
 
 /* Form inputs on green (RSVP) */
 .section--green .form-group input[type="text"] {
-    border-color: rgba(249, 238, 224, 0.35);
-    background: rgba(249, 238, 224, 0.1);
+    border-color: rgba(var(--color-light-rgb), 0.35);
+    background: rgba(var(--color-light-rgb), 0.1);
     color: var(--text-light);
 }
-.section--green .form-group input[type="text"]::placeholder { color: rgba(249, 238, 224, 0.45); }
+.section--green .form-group input[type="text"]::placeholder { color: rgba(var(--color-light-rgb), 0.45); }
 .section--green .form-group input[type="text"]:focus-visible {
-    border-color: rgba(249, 238, 224, 0.8);
-    background: rgba(249, 238, 224, 0.18);
-    outline-color: rgba(249, 238, 224, 0.6);
+    border-color: rgba(var(--color-light-rgb), 0.8);
+    background: rgba(var(--color-light-rgb), 0.18);
+    outline-color: rgba(var(--color-light-rgb), 0.6);
 }
 .section--green .form-group > label,
 .section--green fieldset.form-group legend { color: var(--text-light); opacity: 0.85; }
 .section--green .radio-label {
     color: var(--text-light);
-    border-color: rgba(249, 238, 224, 0.35);
+    border-color: rgba(var(--color-light-rgb), 0.35);
 }
 .section--green .radio-label:hover {
-    background: rgba(249, 238, 224, 0.12);
-    border-color: rgba(249, 238, 224, 0.7);
+    background: rgba(var(--color-light-rgb), 0.12);
+    border-color: rgba(var(--color-light-rgb), 0.7);
 }
-.section--green .radio-label input[type="radio"] { accent-color: #f9eee0; }
+.section--green .radio-label input[type="radio"] { accent-color: var(--color-light); }
 .section--green .form-success {
-    background: rgba(249, 238, 224, 0.18);
-    border-color: rgba(249, 238, 224, 0.2);
+    background: rgba(var(--color-light-rgb), 0.18);
+    border-color: rgba(var(--color-light-rgb), 0.2);
     color: var(--text-light);
 }
 
@@ -1327,7 +1331,7 @@ a.rec-link:focus-visible {
         top: var(--nav-height);
         left: 0;
         right: 0;
-        background: #f9eee0;
+        background: var(--color-light);
         flex-direction: column;
         align-items: center;
         gap: 0;
@@ -1363,7 +1367,7 @@ a.rec-link:focus-visible {
     .names                       { font-size: clamp(2.8rem, 11vw, 4.2rem); flex-wrap: wrap; justify-content: center; }
     .names span:not(.names__amp) { flex: none; text-align: center; }
     .names__amp                  { flex: none; }
-    .section__title  { font-size: clamp(1.8rem, 6vw, 2.4rem); margin-bottom: 24px; }
+    .section__title  { font-size: clamp(2rem, 6vw, 2.4rem); margin-bottom: 24px; }
     .section__subtitle { margin-top: -18px; margin-bottom: 24px; font-size: 0.9rem; }
     .tagline         { font-size: 0.7rem; letter-spacing: 0.2em; margin-bottom: 16px; }
     .date-display    { font-size: clamp(1.2rem, 4vw, 1.6rem); margin-bottom: 16px; }
@@ -1375,8 +1379,8 @@ a.rec-link:focus-visible {
         grid-template-columns: 1fr;
         gap: 18px;
     }
-    .info-block h3 { font-size: clamp(1rem, 4.5vw, 1.3rem); }
-    .info-block p  { font-size: 0.82rem; }
+    .info-block h3 { font-size: clamp(1.8rem, 4.5vw, 2rem); }
+    .info-block p  { font-size: clamp(1.1rem, 3vw, 1.4rem); }
 
     /* Timeline — large icons & text, zero gap between items */
     .tl-item__icon  { width: 90px; height: 90px; }
