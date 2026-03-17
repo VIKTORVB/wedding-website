@@ -8,52 +8,63 @@
     src: url('fonts/TT Ricordi Trial Nobili.ttf') format('truetype');
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
+  html, body {
     width: 1200px;
     height: 630px;
-    background: #635d1f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
   }
+  body {
+    background: #635d1f;
+  }
   .card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     color: #FFF8E7;
-    gap: 0;
+    width: 1040px;
   }
   .names {
     font-family: 'WeddingHeader', 'Georgia', serif;
-    font-size: 112px;
+    font-size: 103px;
     font-weight: 400;
     line-height: 1.08;
     letter-spacing: 0.01em;
     margin-bottom: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
   }
+  .names span:not(.amp) { flex: 1; }
+  .names span:first-child { text-align: right; }
+  .names span:last-child  { text-align: left; }
+  .names .amp { flex: 0; padding: 0 0.15em; }
   .tagline {
     font-family: 'Garamond', 'Georgia', serif;
-    font-size: 22px;
-    letter-spacing: 0.22em;
+    font-size: 26px;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    opacity: 0.82;
-    margin-bottom: 32px;
+    opacity: 0.55;
+    margin-bottom: 24px;
   }
   .date {
-    font-family: 'Garamond', 'Georgia', serif;
-    font-size: 28px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-family: 'WeddingHeader', 'Georgia', serif;
+    font-size: 58px;
+    letter-spacing: 0.04em;
     opacity: 0.9;
   }
 </style>
 </head>
 <body>
   <div class="card">
-    <div class="names">Симона &amp; Виктор</div>
+    <div class="names"><span>Симона</span><span class="amp">&amp;</span><span>Виктор</span></div>
     <div class="tagline">ще се женят</div>
     <div class="date">19 септември 2026</div>
   </div>
